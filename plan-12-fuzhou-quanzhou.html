@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>福泉五日 · 半城烟火半城仙 · 十一五日游方案集</title>
+<style>:root{--accent:#C2185B}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",system-ui,sans-serif;color:#2c2a26;background:#faf9f5;line-height:1.8;-webkit-font-smoothing:antialiased;zoom:1.12}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+/* ---- 详情页头部 ---- */
+.hero{background:linear-gradient(165deg,color-mix(in srgb,var(--accent) 14%,#fff),#faf9f5 72%);border-bottom:1px solid #ece4d6;padding:34px 0 28px}
+.back{display:inline-block;font-size:13px;color:#8a8375;margin-bottom:14px}
+.back:hover{color:var(--accent)}
+.emoji{font-size:42px;line-height:1}
+h1.title{font-size:29px;margin:10px 0 8px;letter-spacing:.5px;color:#26241f}
+.subtitle{color:#6b675e;font-size:15.5px;max-width:680px}
+.tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12.5px;padding:3px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,#fff);color:color-mix(in srgb,var(--accent) 82%,#000);border:1px solid color-mix(in srgb,var(--accent) 28%,#fff)}
+/* ---- 速览 ---- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0 8px}
+.fact{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:13px 16px;font-size:13.8px;color:#4a463e}
+.fact b{display:block;font-size:12px;color:#9a9384;font-weight:600;margin-bottom:3px;letter-spacing:1.5px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0 6px}
+.score{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:11px 16px}
+.score .lab{font-size:12.5px;color:#9a9384;display:flex;justify-content:space-between;align-items:baseline}
+.score .lab em{font-style:normal;color:#c2bbaa;font-size:11px}
+.dots{font-size:15px;color:var(--accent);letter-spacing:3px;margin-top:2px}
+/* ---- 章节 ---- */
+h2.sec{font-size:20px;margin:34px 0 14px;display:flex;align-items:center;gap:10px;color:#26241f}
+h2.sec::before{content:"";width:5px;height:19px;border-radius:3px;background:var(--accent)}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.chip{background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:9px 12px;font-size:13px;color:#57534a}
+.chip b{color:var(--accent);display:block;font-size:11.5px;margin-bottom:1px;letter-spacing:1px}
+/* ---- 每日行程 ---- */
+.day{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:18px 22px;margin-bottom:16px;box-shadow:0 1px 2px rgba(60,50,30,.03)}
+.day h3{font-size:16.5px;margin-bottom:10px;color:#33302a}
+.day h3 .d{color:color-mix(in srgb,var(--accent) 85%,#000)}
+.slot{display:flex;gap:14px;padding:9px 0;border-top:1px dashed #efe8da}
+.day .slot:first-of-type{border-top:0}
+.slot .lab{flex:0 0 52px;height:26px;border-radius:8px;font-size:12.5px;display:flex;align-items:center;justify-content:center;margin-top:3px;font-weight:600}
+.lab.am{background:#fdf3e2;color:#a06a12}
+.lab.pm{background:#e8f3ec;color:#2f7d51}
+.lab.eve{background:#efecfa;color:#5d4fb3}
+.slot p{flex:1;font-size:14.3px;color:#4a463e}
+.eats{margin-top:8px;background:color-mix(in srgb,var(--accent) 7%,#fff);border:1px dashed color-mix(in srgb,var(--accent) 38%,#fff);border-radius:10px;padding:8px 14px;font-size:13.3px;color:#6b675e}
+.eats b{color:var(--accent);font-weight:600;margin-right:6px}
+/* ---- 必吃清单 ---- */
+.eatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.eat{background:#fff;border:1px solid #ece4d6;border-radius:10px;padding:8px 14px;font-size:13.8px;color:#4a463e}
+.eat::before{content:"✦ ";color:var(--accent)}
+/* ---- 实用信息 ---- */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.info .box{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:15px 18px}
+.box h4{font-size:14.5px;margin-bottom:7px;color:#33302a}
+.box ul{list-style:none}
+.box li{font-size:13.5px;color:#57534a;padding:3px 0 3px 16px;position:relative}
+.box li::before{content:"";position:absolute;left:2px;top:14px;width:5px;height:5px;border-radius:50%;background:color-mix(in srgb,var(--accent) 65%,#fff)}
+/* ---- 上下翻页 ---- */
+.pager{display:flex;gap:12px;margin:30px 0 10px}
+.pager a{flex:1;background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:11px 16px;font-size:13.5px;color:#57534a;transition:.15s}
+.pager a:hover{border-color:var(--accent);color:var(--accent)}
+.pager a small{display:block;color:#b7b0a2;font-size:11.5px;margin-bottom:1px}
+.pager a.next{text-align:right}
+.pager a.home{flex:0 0 140px;display:flex;align-items:center;justify-content:center}
+footer{padding:20px 0 36px;color:#b7b0a2;font-size:12.5px;text-align:center}
+/* ---- 总览页 ---- */
+.idx-hero{background:linear-gradient(160deg,#fdf3e7,#faf9f5);border-bottom:1px solid #ece4d6;padding:46px 0 32px;text-align:center}
+.idx-hero .kicker{font-size:13px;letter-spacing:5px;color:#a89f8d}
+.idx-hero h1{font-size:33px;margin:10px 0 8px;color:#26241f}
+.idx-hero p{color:#6b675e;font-size:14.5px}
+.pick{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:14px 20px;margin:18px 0;font-size:13.8px;color:#57534a;line-height:2}
+.pick b{color:#26241f}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid #ece4d6;border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:13.2px;min-width:1020px}
+th{background:#f4efe6;padding:10px 10px;font-size:12.2px;color:#8a8375;letter-spacing:1px;white-space:nowrap;text-align:left}
+td{padding:10px;border-top:1px solid #f0eade;vertical-align:middle}
+tbody tr:hover td{background:#fbf7ef}
+td a.city{font-weight:600}
+td a.city:hover{color:#c05a2e}
+.mini{letter-spacing:2px;color:#c05a2e;white-space:nowrap}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:14px}
+.card{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:19px;transition:.15s;display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(60,50,30,.09);border-color:#d8cdb8}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .top .emoji{font-size:29px}
+.card h3{font-size:17.5px;color:#26241f}
+.card .sub{font-size:13px;color:#8a8375;margin:8px 0 10px;min-height:42px}
+.card .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12.2px;color:#6b675e}
+.card .meta span{background:#f6f1e7;border-radius:8px;padding:2px 9px}
+.card .go{margin-top:11px;font-size:13px;color:#c05a2e;font-weight:600}
+@media (max-width:640px){
+  h1.title{font-size:24px}
+  .slot{flex-direction:column;gap:6px}
+  .slot .lab{margin-top:0}
+  .idx-hero h1{font-size:26px}
+}
+@media print{
+  .pager,.back,.card .go{display:none}
+  .day{break-inside:avoid}
+  body{background:#fff;zoom:1}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<a class="back" href="index.html">← 返回总览（21 城方案）</a>
+<div class="emoji">🌺</div>
+<h1 class="title">福泉五日 · 半城烟火半城仙</h1>
+<p class="subtitle">福州的老巷与鱼丸，泉州的神明与簪花——闽地古早味双城记，人少景深。</p>
+<div class="tags"><span class="tag">世遗古城</span><span class="tag">簪花围</span><span class="tag">古早味</span><span class="tag">双城慢游</span></div>
+</div></header>
+<main class="wrap">
+<div class="facts">
+<div class="fact"><b>🌤️ 十月天气</b>10月 20–28°C，晴暖舒适，偶有阵雨</div>
+<div class="fact"><b>👥 适合谁</b>喜欢古城人文、不爱人挤人、爱拍人文片的人</div>
+<div class="fact"><b>💰 预算参考</b>约 2500–3800 元/人（不含往返大交通）</div>
+<div class="fact"><b>🏠 住哪一带</b>福州住三坊七巷周边（东街口地铁）；泉州住西街/钟楼一带（古城步行核心）</div>
+</div>
+<div class="scores">
+<div class="score"><div class="lab"><span>轻松</span><em>越多越省力</em></div><div class="dots">●●●●●</div></div>
+<div class="score"><div class="lab"><span>美食</span><em>越多越好吃</em></div><div class="dots">●●●●○</div></div>
+<div class="score"><div class="lab"><span>美景</span><em>越多越好看</em></div><div class="dots">●●●○○</div></div>
+<div class="score"><div class="lab"><span>十一人流</span><em>越多越拥挤</em></div><div class="dots">●●○○○</div></div>
+</div>
+<h2 class="sec">行程一览</h2><div class="strip">
+<div class="chip"><b>D1 · 福州</b>三坊七巷的白与黛</div>
+<div class="chip"><b>D2 · 福州</b>烟台山与上下杭</div>
+<div class="chip"><b>D3 · 移动日</b>高铁去泉州</div>
+<div class="chip"><b>D4 · 泉州</b>蟳埔簪花与神明街区</div>
+<div class="chip"><b>D5 · 泉州</b>老君岩与洛阳桥</div>
+</div>
+<h2 class="sec">每日安排</h2>
+<section class="day"><h3><span class="d">D1 · 福州</span> ｜ 三坊七巷的白与黛</h3>
+<div class="slot"><span class="lab am">上午</span><p>抵达福州，入住三坊七巷周边。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>三坊七巷：明清坊巷肌理保存完整，林觉民·冰心故居、严复故居一路串起来走。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>达明美食街或老药洲街：同利肉燕+永和鱼丸+花生汤三连击。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>同利肉燕 · 永和鱼丸 · 花生汤</div>
+</section>
+<section class="day"><h3><span class="d">D2 · 福州</span> ｜ 烟台山与上下杭</h3>
+<div class="slot"><span class="lab am">上午</span><p>烟台山历史街区：老洋行、领事馆遗址，文艺咖啡就藏在坡道巷子里。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>上下杭古厝街区（福州版“上海新天地”）；中午锅边糊+芋泥安排上。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>闽江边散步消食；夜宵一碗捞化（福州版“自助冒菜”）。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>锅边糊 · 芋泥 · 捞化</div>
+</section>
+<section class="day"><h3><span class="d">D3 · 移动日</span> ｜ 高铁去泉州</h3>
+<div class="slot"><span class="lab am">上午</span><p>高铁福州→泉州（约1小时），入住西街/钟楼一带。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>开元寺：东西双塔下的千年古刹，弘一法师“悲欣交集”真迹在此。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>西街天台咖啡馆看双塔落日；水门国仔面线糊配油条当晚餐。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>面线糊 · 醋肉 · 四果汤</div>
+</section>
+<section class="day"><h3><span class="d">D4 · 泉州</span> ｜ 蟳埔簪花与神明街区</h3>
+<div class="slot"><span class="lab am">上午</span><p>蟳埔村：蚵壳厝（牡蛎壳砌墙）+簪花围体验（早去光线好人少，出片绝佳）。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>回古城区：关帝庙、清净寺、府文庙——一条街上儒释道伊四教比邻，世界宗教博物馆名不虚传。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>承天寺晚风里散步，古城咖啡馆收尾；晚餐斯丹姜母鸭。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>姜母鸭 · 土笋冻 · 润饼</div>
+</section>
+<section class="day"><h3><span class="d">D5 · 泉州</span> ｜ 老君岩与洛阳桥</h3>
+<div class="slot"><span class="lab am">上午</span><p>清源山脚看老君岩（中国现存最大道教石雕），体力好再往山上走走。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>洛阳桥——中国古代四大名桥之一，退潮时走在千年石桥上看滩涂；返程前买肉粽、茶点。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>烧肉粽 · 石花膏 · 姜母鸭（伴手装）</div>
+</section>
+<h2 class="sec">必吃清单</h2><div class="eatgrid">
+<div class="eat">同利肉燕</div>
+<div class="eat">永和鱼丸</div>
+<div class="eat">锅边糊</div>
+<div class="eat">芋泥</div>
+<div class="eat">捞化</div>
+<div class="eat">面线糊（水门国仔）</div>
+<div class="eat">姜母鸭（斯丹）</div>
+<div class="eat">土笋冻</div>
+<div class="eat">醋肉</div>
+<div class="eat">四果汤</div>
+<div class="eat">润饼</div>
+<div class="eat">石花膏</div>
+</div>
+<h2 class="sec">实用信息</h2><div class="info">
+<div class="box"><h4>🚄 交通指南</h4><ul><li>福州/泉州高铁大站直达；两城之间高铁约1小时；泉州市内古城“小白”电瓶车招手即停，2元起步</li></ul></div>
+<div class="box"><h4>🎫 提前预约/购票</h4><ul>
+<li>簪花围体验：无需预约但早去，热门妆造店可能排队</li>
+<li>高铁票：十一提前购</li>
+<li>开元寺免费，部分故居博物馆周一闭馆</li>
+</ul></div>
+<div class="box"><h4>💡 避坑与小贴士</h4><ul>
+<li>簪花围早上去，人少光线好，9点后旅行团抵达</li>
+<li>泉州古城“小白”电瓶车随招随停，比打车方便</li>
+<li>面线糊要配油条才正宗，加大肠醋肉更香</li>
+<li>两城节奏都慢，别排太满，巷子里乱逛是正经事</li>
+</ul></div>
+</div>
+<nav class="pager">
+<a href="plan-11-guangfo-shunde.html"><small>上一份 · 广州·顺德</small>广佛顺德五日 · 食在广州，厨出凤城</a>
+<a class="home" href="index.html">返回总览</a>
+<a class="next" href="plan-13-hainan.html"><small>下一份 · 海口·三亚</small>海南五日 · 椰风海韵躺平之旅</a>
+</nav>
+<footer>十一五日游方案集 · 方案 12 / 21 · 生成于 2026-09-23 · 价格与开放信息请以出行时为准</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>山西五日 · 地上文物看山西 · 十一五日游方案集</title>
+<style>:root{--accent:#A0522D}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",system-ui,sans-serif;color:#2c2a26;background:#faf9f5;line-height:1.8;-webkit-font-smoothing:antialiased;zoom:1.12}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+/* ---- 详情页头部 ---- */
+.hero{background:linear-gradient(165deg,color-mix(in srgb,var(--accent) 14%,#fff),#faf9f5 72%);border-bottom:1px solid #ece4d6;padding:34px 0 28px}
+.back{display:inline-block;font-size:13px;color:#8a8375;margin-bottom:14px}
+.back:hover{color:var(--accent)}
+.emoji{font-size:42px;line-height:1}
+h1.title{font-size:29px;margin:10px 0 8px;letter-spacing:.5px;color:#26241f}
+.subtitle{color:#6b675e;font-size:15.5px;max-width:680px}
+.tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12.5px;padding:3px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,#fff);color:color-mix(in srgb,var(--accent) 82%,#000);border:1px solid color-mix(in srgb,var(--accent) 28%,#fff)}
+/* ---- 速览 ---- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0 8px}
+.fact{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:13px 16px;font-size:13.8px;color:#4a463e}
+.fact b{display:block;font-size:12px;color:#9a9384;font-weight:600;margin-bottom:3px;letter-spacing:1.5px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0 6px}
+.score{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:11px 16px}
+.score .lab{font-size:12.5px;color:#9a9384;display:flex;justify-content:space-between;align-items:baseline}
+.score .lab em{font-style:normal;color:#c2bbaa;font-size:11px}
+.dots{font-size:15px;color:var(--accent);letter-spacing:3px;margin-top:2px}
+/* ---- 章节 ---- */
+h2.sec{font-size:20px;margin:34px 0 14px;display:flex;align-items:center;gap:10px;color:#26241f}
+h2.sec::before{content:"";width:5px;height:19px;border-radius:3px;background:var(--accent)}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.chip{background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:9px 12px;font-size:13px;color:#57534a}
+.chip b{color:var(--accent);display:block;font-size:11.5px;margin-bottom:1px;letter-spacing:1px}
+/* ---- 每日行程 ---- */
+.day{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:18px 22px;margin-bottom:16px;box-shadow:0 1px 2px rgba(60,50,30,.03)}
+.day h3{font-size:16.5px;margin-bottom:10px;color:#33302a}
+.day h3 .d{color:color-mix(in srgb,var(--accent) 85%,#000)}
+.slot{display:flex;gap:14px;padding:9px 0;border-top:1px dashed #efe8da}
+.day .slot:first-of-type{border-top:0}
+.slot .lab{flex:0 0 52px;height:26px;border-radius:8px;font-size:12.5px;display:flex;align-items:center;justify-content:center;margin-top:3px;font-weight:600}
+.lab.am{background:#fdf3e2;color:#a06a12}
+.lab.pm{background:#e8f3ec;color:#2f7d51}
+.lab.eve{background:#efecfa;color:#5d4fb3}
+.slot p{flex:1;font-size:14.3px;color:#4a463e}
+.eats{margin-top:8px;background:color-mix(in srgb,var(--accent) 7%,#fff);border:1px dashed color-mix(in srgb,var(--accent) 38%,#fff);border-radius:10px;padding:8px 14px;font-size:13.3px;color:#6b675e}
+.eats b{color:var(--accent);font-weight:600;margin-right:6px}
+/* ---- 必吃清单 ---- */
+.eatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.eat{background:#fff;border:1px solid #ece4d6;border-radius:10px;padding:8px 14px;font-size:13.8px;color:#4a463e}
+.eat::before{content:"✦ ";color:var(--accent)}
+/* ---- 实用信息 ---- */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.info .box{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:15px 18px}
+.box h4{font-size:14.5px;margin-bottom:7px;color:#33302a}
+.box ul{list-style:none}
+.box li{font-size:13.5px;color:#57534a;padding:3px 0 3px 16px;position:relative}
+.box li::before{content:"";position:absolute;left:2px;top:14px;width:5px;height:5px;border-radius:50%;background:color-mix(in srgb,var(--accent) 65%,#fff)}
+/* ---- 上下翻页 ---- */
+.pager{display:flex;gap:12px;margin:30px 0 10px}
+.pager a{flex:1;background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:11px 16px;font-size:13.5px;color:#57534a;transition:.15s}
+.pager a:hover{border-color:var(--accent);color:var(--accent)}
+.pager a small{display:block;color:#b7b0a2;font-size:11.5px;margin-bottom:1px}
+.pager a.next{text-align:right}
+.pager a.home{flex:0 0 140px;display:flex;align-items:center;justify-content:center}
+footer{padding:20px 0 36px;color:#b7b0a2;font-size:12.5px;text-align:center}
+/* ---- 总览页 ---- */
+.idx-hero{background:linear-gradient(160deg,#fdf3e7,#faf9f5);border-bottom:1px solid #ece4d6;padding:46px 0 32px;text-align:center}
+.idx-hero .kicker{font-size:13px;letter-spacing:5px;color:#a89f8d}
+.idx-hero h1{font-size:33px;margin:10px 0 8px;color:#26241f}
+.idx-hero p{color:#6b675e;font-size:14.5px}
+.pick{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:14px 20px;margin:18px 0;font-size:13.8px;color:#57534a;line-height:2}
+.pick b{color:#26241f}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid #ece4d6;border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:13.2px;min-width:1020px}
+th{background:#f4efe6;padding:10px 10px;font-size:12.2px;color:#8a8375;letter-spacing:1px;white-space:nowrap;text-align:left}
+td{padding:10px;border-top:1px solid #f0eade;vertical-align:middle}
+tbody tr:hover td{background:#fbf7ef}
+td a.city{font-weight:600}
+td a.city:hover{color:#c05a2e}
+.mini{letter-spacing:2px;color:#c05a2e;white-space:nowrap}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:14px}
+.card{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:19px;transition:.15s;display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(60,50,30,.09);border-color:#d8cdb8}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .top .emoji{font-size:29px}
+.card h3{font-size:17.5px;color:#26241f}
+.card .sub{font-size:13px;color:#8a8375;margin:8px 0 10px;min-height:42px}
+.card .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12.2px;color:#6b675e}
+.card .meta span{background:#f6f1e7;border-radius:8px;padding:2px 9px}
+.card .go{margin-top:11px;font-size:13px;color:#c05a2e;font-weight:600}
+@media (max-width:640px){
+  h1.title{font-size:24px}
+  .slot{flex-direction:column;gap:6px}
+  .slot .lab{margin-top:0}
+  .idx-hero h1{font-size:26px}
+}
+@media print{
+  .pager,.back,.card .go{display:none}
+  .day{break-inside:avoid}
+  body{background:#fff;zoom:1}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<a class="back" href="index.html">← 返回总览（21 城方案）</a>
+<div class="emoji">🏮</div>
+<h1 class="title">山西五日 · 地上文物看山西</h1>
+<p class="subtitle">云冈的大佛、悬空寺的巧、平遥的票号——中国古建爱好者的天堂，人少面多醋香。</p>
+<div class="tags"><span class="tag">古建巡礼</span><span class="tag">云冈石窟</span><span class="tag">平遥古城</span><span class="tag">面食之乡</span></div>
+</div></header>
+<main class="wrap">
+<div class="facts">
+<div class="fact"><b>🌤️ 十月天气</b>10月 5–18°C，早晚冷中午晒，厚外套或轻薄羽绒必备（大同十月已经很像冬天）</div>
+<div class="fact"><b>👥 适合谁</b>古建筑与历史爱好者、面食爱好者、想避开人潮的清净派</div>
+<div class="fact"><b>💰 预算参考</b>约 2600–3800 元/人（不含往返大交通）</div>
+<div class="fact"><b>🏠 住哪一带</b>大同住古城内（鼓楼一带，晚上方便）；平遥住古城内客栈（火炕房体验）；太原住柳巷/食品街一带</div>
+</div>
+<div class="scores">
+<div class="score"><div class="lab"><span>轻松</span><em>越多越省力</em></div><div class="dots">●●●●○</div></div>
+<div class="score"><div class="lab"><span>美食</span><em>越多越好吃</em></div><div class="dots">●●●●○</div></div>
+<div class="score"><div class="lab"><span>美景</span><em>越多越好看</em></div><div class="dots">●●●●○</div></div>
+<div class="score"><div class="lab"><span>十一人流</span><em>越多越拥挤</em></div><div class="dots">●●○○○</div></div>
+</div>
+<h2 class="sec">行程一览</h2><div class="strip">
+<div class="chip"><b>D1 · 大同</b>古城初见</div>
+<div class="chip"><b>D2 · 大同</b>云冈石窟</div>
+<div class="chip"><b>D3 · 移动日</b>悬空寺与木塔</div>
+<div class="chip"><b>D4 · 平遥</b>古城一日</div>
+<div class="chip"><b>D5 · 太原</b>从容收尾</div>
+</div>
+<h2 class="sec">每日安排</h2>
+<section class="day"><h3><span class="d">D1 · 大同</span> ｜ 古城初见</h3>
+<div class="slot"><span class="lab am">上午</span><p>抵达大同，入住古城内，十月的大同已有寒意，裹紧外套出发。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>大同古城墙（比西安城墙更完整沧桑）+华严寺——辽金巨构，合掌露齿菩萨是东方维纳斯。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>凤临阁吃百花烧麦（一笼看尽手艺），鼓楼东街夜色收尾。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>百花烧麦（凤临阁） · 大同刀削面 · 浑源凉粉</div>
+</section>
+<section class="day"><h3><span class="d">D2 · 大同</span> ｜ 云冈石窟</h3>
+<div class="slot"><span class="lab am">上午</span><p>云冈石窟：第20窟露天大佛的微笑能看一上午，请讲解或租导览，北魏的雄浑扑面而来。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>返市区看善化寺（辽金木构密集到奢侈），或法华寺慢逛。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>一碗热腾腾的羊杂割暖身，配黄糕。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>羊杂割 · 黄糕 · 大同刀削面</div>
+</section>
+<section class="day"><h3><span class="d">D3 · 移动日</span> ｜ 悬空寺与木塔</h3>
+<div class="slot"><span class="lab am">上午</span><p>恒山悬空寺（登临票限流，提前买）——挂在崖壁上一千五百年的巧思。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>顺路应县木塔：世界现存最高古木塔，近观即震撼；傍晚高铁/包车赴平遥。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>抵达平遥，宿古城客栈，晚上城墙根下走走。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>应县凉粉 · 碗托 · 平遥牛肉</div>
+</section>
+<section class="day"><h3><span class="d">D4 · 平遥</span> ｜ 古城一日</h3>
+<div class="slot"><span class="lab am">上午</span><p>平遥古城墙+日昇昌票号（中国第一家票号，晋商金融的心脏）+协同庆地下金库。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>县衙看升堂表演，城隍庙转转，傍晚城墙看落日把古城染金。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>《又见平遥》情境演出（口碑极高，提前购票）；平遥牛肉配一壶汾酒。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>平遥牛肉 · 莜面栲栳栳 · 平遥碗托</div>
+</section>
+<section class="day"><h3><span class="d">D5 · 太原</span> ｜ 从容收尾</h3>
+<div class="slot"><span class="lab am">上午</span><p>睡到自然醒，高铁赴太原（约40分钟），寄存行李。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>山西博物院看鸟尊（周一闭馆）或晋祠看圣母殿宋塑侍女（二选一）。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>柳巷食品街最后一顿晋菜，买老陈醋、太谷饼伴手礼，从容返程。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>过油肉 · 头脑（早点名物） · 老陈醋（伴手）</div>
+</section>
+<h2 class="sec">必吃清单</h2><div class="eatgrid">
+<div class="eat">大同刀削面</div>
+<div class="eat">百花烧麦</div>
+<div class="eat">浑源凉粉</div>
+<div class="eat">羊杂割</div>
+<div class="eat">黄糕</div>
+<div class="eat">平遥牛肉</div>
+<div class="eat">莜面栲栳栳</div>
+<div class="eat">碗托</div>
+<div class="eat">过油肉</div>
+<div class="eat">太原头脑</div>
+<div class="eat">太谷饼</div>
+<div class="eat">山西老陈醋</div>
+</div>
+<h2 class="sec">实用信息</h2><div class="info">
+<div class="box"><h4>🚄 交通指南</h4><ul><li>大同云冈机场/高铁大同南站；大同→太原高铁约1.5小时；平遥古城站下车即到；市内打车不贵</li></ul></div>
+<div class="box"><h4>🎫 提前预约/购票</h4><ul>
+<li>悬空寺登临票：限流严格，提前数天购</li>
+<li>云冈石窟门票：旺季提前购</li>
+<li>《又见平遥》演出票：提前1–2天</li>
+<li>山西博物院：免费预约，周一闭馆</li>
+</ul></div>
+<div class="box"><h4>💡 避坑与小贴士</h4><ul>
+<li>十月初大同早晚只有几度，厚外套或轻薄羽绒都合适</li>
+<li>古建看三座就值回票价，别贪多赶场</li>
+<li>平遥客栈选城内，晚上古城没人才有味道</li>
+<li>面食分量极大，两人一份先试再加</li>
+<li>晋菜的酸是陈醋香，不是坏了（真的）</li>
+</ul></div>
+</div>
+<nav class="pager">
+<a href="plan-16-weihai.html"><small>上一份 · 威海</small>威海五日 · 千里山海慢看海</a>
+<a class="home" href="index.html">返回总览</a>
+<a class="next" href="plan-18-shanghai.html"><small>下一份 · 上海</small>上海五日 · 梧桐区与蟹季</a>
+</nav>
+<footer>十一五日游方案集 · 方案 17 / 21 · 生成于 2026-09-23 · 价格与开放信息请以出行时为准</footer>
+</main>
+</body>
+</html>

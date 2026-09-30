@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>潮汕五日 · 为了吃值得一去再去 · 十一五日游方案集</title>
+<style>:root{--accent:#8C4A2F}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",system-ui,sans-serif;color:#2c2a26;background:#faf9f5;line-height:1.8;-webkit-font-smoothing:antialiased;zoom:1.12}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+/* ---- 详情页头部 ---- */
+.hero{background:linear-gradient(165deg,color-mix(in srgb,var(--accent) 14%,#fff),#faf9f5 72%);border-bottom:1px solid #ece4d6;padding:34px 0 28px}
+.back{display:inline-block;font-size:13px;color:#8a8375;margin-bottom:14px}
+.back:hover{color:var(--accent)}
+.emoji{font-size:42px;line-height:1}
+h1.title{font-size:29px;margin:10px 0 8px;letter-spacing:.5px;color:#26241f}
+.subtitle{color:#6b675e;font-size:15.5px;max-width:680px}
+.tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12.5px;padding:3px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,#fff);color:color-mix(in srgb,var(--accent) 82%,#000);border:1px solid color-mix(in srgb,var(--accent) 28%,#fff)}
+/* ---- 速览 ---- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0 8px}
+.fact{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:13px 16px;font-size:13.8px;color:#4a463e}
+.fact b{display:block;font-size:12px;color:#9a9384;font-weight:600;margin-bottom:3px;letter-spacing:1.5px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0 6px}
+.score{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:11px 16px}
+.score .lab{font-size:12.5px;color:#9a9384;display:flex;justify-content:space-between;align-items:baseline}
+.score .lab em{font-style:normal;color:#c2bbaa;font-size:11px}
+.dots{font-size:15px;color:var(--accent);letter-spacing:3px;margin-top:2px}
+/* ---- 章节 ---- */
+h2.sec{font-size:20px;margin:34px 0 14px;display:flex;align-items:center;gap:10px;color:#26241f}
+h2.sec::before{content:"";width:5px;height:19px;border-radius:3px;background:var(--accent)}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.chip{background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:9px 12px;font-size:13px;color:#57534a}
+.chip b{color:var(--accent);display:block;font-size:11.5px;margin-bottom:1px;letter-spacing:1px}
+/* ---- 每日行程 ---- */
+.day{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:18px 22px;margin-bottom:16px;box-shadow:0 1px 2px rgba(60,50,30,.03)}
+.day h3{font-size:16.5px;margin-bottom:10px;color:#33302a}
+.day h3 .d{color:color-mix(in srgb,var(--accent) 85%,#000)}
+.slot{display:flex;gap:14px;padding:9px 0;border-top:1px dashed #efe8da}
+.day .slot:first-of-type{border-top:0}
+.slot .lab{flex:0 0 52px;height:26px;border-radius:8px;font-size:12.5px;display:flex;align-items:center;justify-content:center;margin-top:3px;font-weight:600}
+.lab.am{background:#fdf3e2;color:#a06a12}
+.lab.pm{background:#e8f3ec;color:#2f7d51}
+.lab.eve{background:#efecfa;color:#5d4fb3}
+.slot p{flex:1;font-size:14.3px;color:#4a463e}
+.eats{margin-top:8px;background:color-mix(in srgb,var(--accent) 7%,#fff);border:1px dashed color-mix(in srgb,var(--accent) 38%,#fff);border-radius:10px;padding:8px 14px;font-size:13.3px;color:#6b675e}
+.eats b{color:var(--accent);font-weight:600;margin-right:6px}
+/* ---- 必吃清单 ---- */
+.eatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.eat{background:#fff;border:1px solid #ece4d6;border-radius:10px;padding:8px 14px;font-size:13.8px;color:#4a463e}
+.eat::before{content:"✦ ";color:var(--accent)}
+/* ---- 实用信息 ---- */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.info .box{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:15px 18px}
+.box h4{font-size:14.5px;margin-bottom:7px;color:#33302a}
+.box ul{list-style:none}
+.box li{font-size:13.5px;color:#57534a;padding:3px 0 3px 16px;position:relative}
+.box li::before{content:"";position:absolute;left:2px;top:14px;width:5px;height:5px;border-radius:50%;background:color-mix(in srgb,var(--accent) 65%,#fff)}
+/* ---- 上下翻页 ---- */
+.pager{display:flex;gap:12px;margin:30px 0 10px}
+.pager a{flex:1;background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:11px 16px;font-size:13.5px;color:#57534a;transition:.15s}
+.pager a:hover{border-color:var(--accent);color:var(--accent)}
+.pager a small{display:block;color:#b7b0a2;font-size:11.5px;margin-bottom:1px}
+.pager a.next{text-align:right}
+.pager a.home{flex:0 0 140px;display:flex;align-items:center;justify-content:center}
+footer{padding:20px 0 36px;color:#b7b0a2;font-size:12.5px;text-align:center}
+/* ---- 总览页 ---- */
+.idx-hero{background:linear-gradient(160deg,#fdf3e7,#faf9f5);border-bottom:1px solid #ece4d6;padding:46px 0 32px;text-align:center}
+.idx-hero .kicker{font-size:13px;letter-spacing:5px;color:#a89f8d}
+.idx-hero h1{font-size:33px;margin:10px 0 8px;color:#26241f}
+.idx-hero p{color:#6b675e;font-size:14.5px}
+.pick{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:14px 20px;margin:18px 0;font-size:13.8px;color:#57534a;line-height:2}
+.pick b{color:#26241f}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid #ece4d6;border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:13.2px;min-width:1020px}
+th{background:#f4efe6;padding:10px 10px;font-size:12.2px;color:#8a8375;letter-spacing:1px;white-space:nowrap;text-align:left}
+td{padding:10px;border-top:1px solid #f0eade;vertical-align:middle}
+tbody tr:hover td{background:#fbf7ef}
+td a.city{font-weight:600}
+td a.city:hover{color:#c05a2e}
+.mini{letter-spacing:2px;color:#c05a2e;white-space:nowrap}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:14px}
+.card{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:19px;transition:.15s;display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(60,50,30,.09);border-color:#d8cdb8}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .top .emoji{font-size:29px}
+.card h3{font-size:17.5px;color:#26241f}
+.card .sub{font-size:13px;color:#8a8375;margin:8px 0 10px;min-height:42px}
+.card .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12.2px;color:#6b675e}
+.card .meta span{background:#f6f1e7;border-radius:8px;padding:2px 9px}
+.card .go{margin-top:11px;font-size:13px;color:#c05a2e;font-weight:600}
+@media (max-width:640px){
+  h1.title{font-size:24px}
+  .slot{flex-direction:column;gap:6px}
+  .slot .lab{margin-top:0}
+  .idx-hero h1{font-size:26px}
+}
+@media print{
+  .pager,.back,.card .go{display:none}
+  .day{break-inside:avoid}
+  body{background:#fff;zoom:1}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<a class="back" href="index.html">← 返回总览（21 城方案）</a>
+<div class="emoji">🫖</div>
+<h1 class="title">潮汕五日 · 为了吃值得一去再去</h1>
+<p class="subtitle">牛肉火锅、生腌、粿条、工夫茶——中国最被低估的美食区，人少味浓。</p>
+<div class="tags"><span class="tag">美食朝圣</span><span class="tag">潮州古城</span><span class="tag">南澳岛</span><span class="tag">工夫茶</span></div>
+</div></header>
+<main class="wrap">
+<div class="facts">
+<div class="fact"><b>🌤️ 十月天气</b>10月 22–29°C，温暖微热，短袖+薄外套</div>
+<div class="fact"><b>👥 适合谁</b>重度吃货、不爱人挤人的人、想慢下来的老饕</div>
+<div class="fact"><b>💰 预算参考</b>约 2600–3800 元/人（不含往返大交通）</div>
+<div class="fact"><b>🏠 住哪一带</b>潮州住牌坊街内（古城核心，晚上散步方便）；汕头住小公园附近</div>
+</div>
+<div class="scores">
+<div class="score"><div class="lab"><span>轻松</span><em>越多越省力</em></div><div class="dots">●●●●●</div></div>
+<div class="score"><div class="lab"><span>美食</span><em>越多越好吃</em></div><div class="dots">●●●●●</div></div>
+<div class="score"><div class="lab"><span>美景</span><em>越多越好看</em></div><div class="dots">●●●○○</div></div>
+<div class="score"><div class="lab"><span>十一人流</span><em>越多越拥挤</em></div><div class="dots">●●○○○</div></div>
+</div>
+<h2 class="sec">行程一览</h2><div class="strip">
+<div class="chip"><b>D1 · 抵达日</b>牌坊街的黄昏</div>
+<div class="chip"><b>D2 · 古城日</b>一桥一寺一祠</div>
+<div class="chip"><b>D3 · 南澳岛日</b>环岛公路与青澳湾</div>
+<div class="chip"><b>D4 · 汕头日</b>小公园与夜糜</div>
+<div class="chip"><b>D5 · 收尾日</b>肠粉与工夫茶</div>
+</div>
+<h2 class="sec">每日安排</h2>
+<section class="day"><h3><span class="d">D1 · 抵达日</span> ｜ 牌坊街的黄昏</h3>
+<div class="slot"><span class="lab am">上午</span><p>抵达潮州（潮汕站），入住牌坊街内民宿。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>牌坊街骑楼慢逛，从街头石牌坊一路走到湘子桥边。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>官塘牛肉火锅开席——现宰黄牛肉，脖仁、吊龙、匙柄各来一盘，涮8秒就吃。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>牛肉火锅 · 手打牛肉丸 · 蚝烙</div>
+</section>
+<section class="day"><h3><span class="d">D2 · 古城日</span> ｜ 一桥一寺一祠</h3>
+<div class="slot"><span class="lab am">上午</span><p>开元寺（粤东第一古刹）+己略黄公祠（金漆木雕巅峰，看一眼值回票价）。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>广济桥——“过河拆桥”的启闭式古桥，过江上韩文公祠，看韩江水缓流。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>广济桥灯光秀（以当日公告为准），古城墙散步；鸭母捻当甜品收尾。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>鸭母捻 · 粿汁 · 春饼</div>
+</section>
+<section class="day"><h3><span class="d">D3 · 南澳岛日</span> ｜ 环岛公路与青澳湾</h3>
+<div class="slot"><span class="lab am">上午</span><p>过南澳大桥上岛，环岛公路一路停靠：田仔地质公园、钱澳湾灯塔。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>青澳湾北回归线广场，沙滩发呆玩水；海鲜大排档午餐，紫菜炒饭必点。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>岛上灯塔边看日落，或返潮州古城夜泡工夫茶。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>海鲜大排档 · 紫菜炒饭 · 鱿鱼</div>
+</section>
+<section class="day"><h3><span class="d">D4 · 汕头日</span> ｜ 小公园与夜糜</h3>
+<div class="slot"><span class="lab am">上午</span><p>高铁或公交赴汕头，小公园亭+开埠区骑楼群，老汕头的时间胶囊。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>老妈宫戏台+邮政总局大楼；下午广场老牌豆花、苏北豆腐花接力。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>夜糜（深夜白粥）配生腌、鱼饭、杂咸——潮汕人的深夜食堂，越晚越热闹。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>老妈宫粽球 · 西天巷蚝烙 · 生腌 · 鱼饭</div>
+</section>
+<section class="day"><h3><span class="d">D5 · 收尾日</span> ｜ 肠粉与工夫茶</h3>
+<div class="slot"><span class="lab am">上午</span><p>一碗潮汕肠粉（皮薄馅足淋酱，和广式完全两回事）+猪红汤收尾。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>买手打牛肉丸、腐乳饼、凤凰单丛茶伴手礼，从容返程。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>肠粉 · 猪红汤 · 工夫茶（伴手）</div>
+</section>
+<h2 class="sec">必吃清单</h2><div class="eatgrid">
+<div class="eat">官塘牛肉火锅</div>
+<div class="eat">手打牛肉丸</div>
+<div class="eat">蚝烙</div>
+<div class="eat">粿汁</div>
+<div class="eat">鸭母捻</div>
+<div class="eat">春饼</div>
+<div class="eat">老妈宫粽球</div>
+<div class="eat">生腌（血蛤/虾姑）</div>
+<div class="eat">鱼饭</div>
+<div class="eat">粿条汤</div>
+<div class="eat">工夫茶</div>
+<div class="eat">凤凰单丛</div>
+</div>
+<h2 class="sec">实用信息</h2><div class="info">
+<div class="box"><h4>🚄 交通指南</h4><ul><li>潮汕站（高铁）到潮州/汕头约30–40分钟车程；两市之间高铁或打车约1小时；南澳岛上自驾或包车最方便</li></ul></div>
+<div class="box"><h4>🎫 提前预约/购票</h4><ul>
+<li>潮州古城民宿：十一提前订，牌坊街内房源有限</li>
+<li>南澳岛过桥无需预约，岛上电动车提前约</li>
+<li>牛肉火锅热门店：饭点提前取号</li>
+</ul></div>
+<div class="box"><h4>💡 避坑与小贴士</h4><ul>
+<li>潮汕旅行的核心是“按饭点规划景点”，反着来就对了</li>
+<li>生腌肠胃弱的人浅尝，配工夫茶解腻</li>
+<li>古城里步行即可，去韩文公祠过广济桥要买桥票</li>
+<li>南澳岛建议包车或自驾，公交班次少</li>
+</ul></div>
+</div>
+<nav class="pager">
+<a href="plan-09-qingdao.html"><small>上一份 · 青岛</small>青岛五日 · 红瓦绿树，碧海蓝天</a>
+<a class="home" href="index.html">返回总览</a>
+<a class="next" href="plan-11-guangfo-shunde.html"><small>下一份 · 广州·顺德</small>广佛顺德五日 · 食在广州，厨出凤城</a>
+</nav>
+<footer>十一五日游方案集 · 方案 10 / 21 · 生成于 2026-09-23 · 价格与开放信息请以出行时为准</footer>
+</main>
+</body>
+</html>

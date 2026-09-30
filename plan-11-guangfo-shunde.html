@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>广佛顺德五日 · 食在广州，厨出凤城 · 十一五日游方案集</title>
+<style>:root{--accent:#B8860B}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",system-ui,sans-serif;color:#2c2a26;background:#faf9f5;line-height:1.8;-webkit-font-smoothing:antialiased;zoom:1.12}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+/* ---- 详情页头部 ---- */
+.hero{background:linear-gradient(165deg,color-mix(in srgb,var(--accent) 14%,#fff),#faf9f5 72%);border-bottom:1px solid #ece4d6;padding:34px 0 28px}
+.back{display:inline-block;font-size:13px;color:#8a8375;margin-bottom:14px}
+.back:hover{color:var(--accent)}
+.emoji{font-size:42px;line-height:1}
+h1.title{font-size:29px;margin:10px 0 8px;letter-spacing:.5px;color:#26241f}
+.subtitle{color:#6b675e;font-size:15.5px;max-width:680px}
+.tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12.5px;padding:3px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,#fff);color:color-mix(in srgb,var(--accent) 82%,#000);border:1px solid color-mix(in srgb,var(--accent) 28%,#fff)}
+/* ---- 速览 ---- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0 8px}
+.fact{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:13px 16px;font-size:13.8px;color:#4a463e}
+.fact b{display:block;font-size:12px;color:#9a9384;font-weight:600;margin-bottom:3px;letter-spacing:1.5px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0 6px}
+.score{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:11px 16px}
+.score .lab{font-size:12.5px;color:#9a9384;display:flex;justify-content:space-between;align-items:baseline}
+.score .lab em{font-style:normal;color:#c2bbaa;font-size:11px}
+.dots{font-size:15px;color:var(--accent);letter-spacing:3px;margin-top:2px}
+/* ---- 章节 ---- */
+h2.sec{font-size:20px;margin:34px 0 14px;display:flex;align-items:center;gap:10px;color:#26241f}
+h2.sec::before{content:"";width:5px;height:19px;border-radius:3px;background:var(--accent)}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.chip{background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:9px 12px;font-size:13px;color:#57534a}
+.chip b{color:var(--accent);display:block;font-size:11.5px;margin-bottom:1px;letter-spacing:1px}
+/* ---- 每日行程 ---- */
+.day{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:18px 22px;margin-bottom:16px;box-shadow:0 1px 2px rgba(60,50,30,.03)}
+.day h3{font-size:16.5px;margin-bottom:10px;color:#33302a}
+.day h3 .d{color:color-mix(in srgb,var(--accent) 85%,#000)}
+.slot{display:flex;gap:14px;padding:9px 0;border-top:1px dashed #efe8da}
+.day .slot:first-of-type{border-top:0}
+.slot .lab{flex:0 0 52px;height:26px;border-radius:8px;font-size:12.5px;display:flex;align-items:center;justify-content:center;margin-top:3px;font-weight:600}
+.lab.am{background:#fdf3e2;color:#a06a12}
+.lab.pm{background:#e8f3ec;color:#2f7d51}
+.lab.eve{background:#efecfa;color:#5d4fb3}
+.slot p{flex:1;font-size:14.3px;color:#4a463e}
+.eats{margin-top:8px;background:color-mix(in srgb,var(--accent) 7%,#fff);border:1px dashed color-mix(in srgb,var(--accent) 38%,#fff);border-radius:10px;padding:8px 14px;font-size:13.3px;color:#6b675e}
+.eats b{color:var(--accent);font-weight:600;margin-right:6px}
+/* ---- 必吃清单 ---- */
+.eatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.eat{background:#fff;border:1px solid #ece4d6;border-radius:10px;padding:8px 14px;font-size:13.8px;color:#4a463e}
+.eat::before{content:"✦ ";color:var(--accent)}
+/* ---- 实用信息 ---- */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.info .box{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:15px 18px}
+.box h4{font-size:14.5px;margin-bottom:7px;color:#33302a}
+.box ul{list-style:none}
+.box li{font-size:13.5px;color:#57534a;padding:3px 0 3px 16px;position:relative}
+.box li::before{content:"";position:absolute;left:2px;top:14px;width:5px;height:5px;border-radius:50%;background:color-mix(in srgb,var(--accent) 65%,#fff)}
+/* ---- 上下翻页 ---- */
+.pager{display:flex;gap:12px;margin:30px 0 10px}
+.pager a{flex:1;background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:11px 16px;font-size:13.5px;color:#57534a;transition:.15s}
+.pager a:hover{border-color:var(--accent);color:var(--accent)}
+.pager a small{display:block;color:#b7b0a2;font-size:11.5px;margin-bottom:1px}
+.pager a.next{text-align:right}
+.pager a.home{flex:0 0 140px;display:flex;align-items:center;justify-content:center}
+footer{padding:20px 0 36px;color:#b7b0a2;font-size:12.5px;text-align:center}
+/* ---- 总览页 ---- */
+.idx-hero{background:linear-gradient(160deg,#fdf3e7,#faf9f5);border-bottom:1px solid #ece4d6;padding:46px 0 32px;text-align:center}
+.idx-hero .kicker{font-size:13px;letter-spacing:5px;color:#a89f8d}
+.idx-hero h1{font-size:33px;margin:10px 0 8px;color:#26241f}
+.idx-hero p{color:#6b675e;font-size:14.5px}
+.pick{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:14px 20px;margin:18px 0;font-size:13.8px;color:#57534a;line-height:2}
+.pick b{color:#26241f}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid #ece4d6;border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:13.2px;min-width:1020px}
+th{background:#f4efe6;padding:10px 10px;font-size:12.2px;color:#8a8375;letter-spacing:1px;white-space:nowrap;text-align:left}
+td{padding:10px;border-top:1px solid #f0eade;vertical-align:middle}
+tbody tr:hover td{background:#fbf7ef}
+td a.city{font-weight:600}
+td a.city:hover{color:#c05a2e}
+.mini{letter-spacing:2px;color:#c05a2e;white-space:nowrap}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:14px}
+.card{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:19px;transition:.15s;display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(60,50,30,.09);border-color:#d8cdb8}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .top .emoji{font-size:29px}
+.card h3{font-size:17.5px;color:#26241f}
+.card .sub{font-size:13px;color:#8a8375;margin:8px 0 10px;min-height:42px}
+.card .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12.2px;color:#6b675e}
+.card .meta span{background:#f6f1e7;border-radius:8px;padding:2px 9px}
+.card .go{margin-top:11px;font-size:13px;color:#c05a2e;font-weight:600}
+@media (max-width:640px){
+  h1.title{font-size:24px}
+  .slot{flex-direction:column;gap:6px}
+  .slot .lab{margin-top:0}
+  .idx-hero h1{font-size:26px}
+}
+@media print{
+  .pager,.back,.card .go{display:none}
+  .day{break-inside:avoid}
+  body{background:#fff;zoom:1}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<a class="back" href="index.html">← 返回总览（21 城方案）</a>
+<div class="emoji">🥟</div>
+<h1 class="title">广佛顺德五日 · 食在广州，厨出凤城</h1>
+<p class="subtitle">早茶叹到饱，双皮奶吃到扶墙——粤菜源头的巡礼，一路都是老广的从容。</p>
+<div class="tags"><span class="tag">广式早茶</span><span class="tag">粤菜源头</span><span class="tag">甜品控</span><span class="tag">西关老城</span></div>
+</div></header>
+<main class="wrap">
+<div class="facts">
+<div class="fact"><b>🌤️ 十月天气</b>10月 22–30°C，仍偏热，早晩散步、正午叹空调饮茶最舒服</div>
+<div class="fact"><b>👥 适合谁</b>早茶爱好者、甜品控、想吃“正经粤菜”的人</div>
+<div class="fact"><b>💰 预算参考</b>约 2800–4000 元/人（不含往返大交通）</div>
+<div class="fact"><b>🏠 住哪一带</b>广州住公园前/北京路一带（地铁1/2号线交汇，老城核心）；顺德一晚可住大良清晖园附近，或当天往返</div>
+</div>
+<div class="scores">
+<div class="score"><div class="lab"><span>轻松</span><em>越多越省力</em></div><div class="dots">●●●●●</div></div>
+<div class="score"><div class="lab"><span>美食</span><em>越多越好吃</em></div><div class="dots">●●●●●</div></div>
+<div class="score"><div class="lab"><span>美景</span><em>越多越好看</em></div><div class="dots">●●○○○</div></div>
+<div class="score"><div class="lab"><span>十一人流</span><em>越多越拥挤</em></div><div class="dots">●●●○○</div></div>
+</div>
+<h2 class="sec">行程一览</h2><div class="strip">
+<div class="chip"><b>D1 · 抵达日</b>北京路的夜</div>
+<div class="chip"><b>D2 · 西关日</b>骑楼与粤剧</div>
+<div class="chip"><b>D3 · 广州经典日</b>陈家祠与小蛮腰</div>
+<div class="chip"><b>D4 · 顺德日</b>世界美食之都</div>
+<div class="chip"><b>D5 · 收尾日</b>一顿体面的早茶</div>
+</div>
+<h2 class="sec">每日安排</h2>
+<section class="day"><h3><span class="d">D1 · 抵达日</span> ｜ 北京路的夜</h3>
+<div class="slot"><span class="lab am">上午</span><p>抵达广州，入住公园前/北京路一带。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>北京路步行街：千年古道遗址就在脚下玻璃罩里，边逛边吃。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>惠福东食街或文明路糖水街：炖品、双皮奶、萝卜牛杂一路接力。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>萝卜牛杂 · 双皮奶 · 民记煲仔饭</div>
+</section>
+<section class="day"><h3><span class="d">D2 · 西关日</span> ｜ 骑楼与粤剧</h3>
+<div class="slot"><span class="lab am">上午</span><p>荔湾湖公园晨运散步+粤剧艺术博物馆（水上戏台常有排练）。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>永庆坊老西关活化街区；中午陈添记鱼皮+顺记冰室椰子雪糕。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>沙面岛欧式建筑群散步，珠江边看日落；夜宵一盘干炒牛河。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>陈添记鱼皮 · 艇仔粥 · 干炒牛河</div>
+</section>
+<section class="day"><h3><span class="d">D3 · 广州经典日</span> ｜ 陈家祠与小蛮腰</h3>
+<div class="slot"><span class="lab am">上午</span><p>陈家祠——岭南建筑巅峰，砖雕、灰塑、陶塑看一个上午都看不完。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>中午向群饭店葱油鸡或惠食佳啫啫煲；下午东山口洋楼群+独立咖啡。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>珠江新城花城广场看广州塔夜景（不必登塔，广场视角最好）。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>葱油鸡 · 啫啫煲 · 姜撞奶</div>
+</section>
+<section class="day"><h3><span class="d">D4 · 顺德日</span> ｜ 世界美食之都</h3>
+<div class="slot"><span class="lab am">上午</span><p>高铁广州南→顺德站（约17分钟），大良清晖园看岭南四大名园。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>华盖路步行街：民信/仁信双皮奶、细妹五香牛杂、李禧记崩砂；下午逢简水乡摇橹船。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>猪肉婆私房菜或黄但记（陈村粉），毋米粥打边炉；宿顺德或返广州。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>双皮奶 · 陈村粉 · 伦教糕 · 均安蒸猪</div>
+</section>
+<section class="day"><h3><span class="d">D5 · 收尾日</span> ｜ 一顿体面的早茶</h3>
+<div class="slot"><span class="lab am">上午</span><p>白天鹅宾馆玉堂春暖或利苑酒家，一顿仪式感广式早茶收官（提前订位）。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>买鸡仔饼、广式腊味、老婆饼伴手礼，从容返程。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>虾饺 · 烧卖 · 叉烧包 · 凤爪</div>
+</section>
+<h2 class="sec">必吃清单</h2><div class="eatgrid">
+<div class="eat">广式早茶四天王（虾饺/烧卖/凤爪/叉烧包）</div>
+<div class="eat">肠粉（银记/源记）</div>
+<div class="eat">煲仔饭</div>
+<div class="eat">双皮奶（民信/仁信）</div>
+<div class="eat">陈添记鱼皮</div>
+<div class="eat">陈村粉</div>
+<div class="eat">伦教糕</div>
+<div class="eat">均安蒸猪</div>
+<div class="eat">炒牛奶</div>
+<div class="eat">深井烧鹅</div>
+<div class="eat">白切鸡</div>
+<div class="eat">老火靓汤</div>
+</div>
+<h2 class="sec">实用信息</h2><div class="info">
+<div class="box"><h4>🚄 交通指南</h4><ul><li>广州地铁+步行为主；广州南→顺德高铁约17分钟，也可地铁广佛线直达</li></ul></div>
+<div class="box"><h4>🎫 提前预约/购票</h4><ul>
+<li>白天鹅玉堂春暖：提前2–3天订位，十一更早</li>
+<li>陈家祠、清晖园门票：线上购票免排队</li>
+<li>顺德热门私房菜：饭点提前取号</li>
+</ul></div>
+<div class="box"><h4>💡 避坑与小贴士</h4><ul>
+<li>早茶10点前入座最从容，热门茶楼排号可先取号再逛街</li>
+<li>顺德小吃下午可能售罄，双皮奶当下午茶最稳</li>
+<li>广州塔不必登塔，花城广场免费看全景</li>
+<li>文明路糖水街适合夜宵收尾，炖品一级棒</li>
+</ul></div>
+</div>
+<nav class="pager">
+<a href="plan-10-chaoshan.html"><small>上一份 · 潮汕</small>潮汕五日 · 为了吃值得一去再去</a>
+<a class="home" href="index.html">返回总览</a>
+<a class="next" href="plan-12-fuzhou-quanzhou.html"><small>下一份 · 福州·泉州</small>福泉五日 · 半城烟火半城仙</a>
+</nav>
+<footer>十一五日游方案集 · 方案 11 / 21 · 生成于 2026-09-23 · 价格与开放信息请以出行时为准</footer>
+</main>
+</body>
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>重庆五日 · 8D魔幻山城 · 十一五日游方案集</title>
+<style>:root{--accent:#6C3FA0}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",system-ui,sans-serif;color:#2c2a26;background:#faf9f5;line-height:1.8;-webkit-font-smoothing:antialiased;zoom:1.12}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+/* ---- 详情页头部 ---- */
+.hero{background:linear-gradient(165deg,color-mix(in srgb,var(--accent) 14%,#fff),#faf9f5 72%);border-bottom:1px solid #ece4d6;padding:34px 0 28px}
+.back{display:inline-block;font-size:13px;color:#8a8375;margin-bottom:14px}
+.back:hover{color:var(--accent)}
+.emoji{font-size:42px;line-height:1}
+h1.title{font-size:29px;margin:10px 0 8px;letter-spacing:.5px;color:#26241f}
+.subtitle{color:#6b675e;font-size:15.5px;max-width:680px}
+.tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12.5px;padding:3px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,#fff);color:color-mix(in srgb,var(--accent) 82%,#000);border:1px solid color-mix(in srgb,var(--accent) 28%,#fff)}
+/* ---- 速览 ---- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0 8px}
+.fact{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:13px 16px;font-size:13.8px;color:#4a463e}
+.fact b{display:block;font-size:12px;color:#9a9384;font-weight:600;margin-bottom:3px;letter-spacing:1.5px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0 6px}
+.score{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:11px 16px}
+.score .lab{font-size:12.5px;color:#9a9384;display:flex;justify-content:space-between;align-items:baseline}
+.score .lab em{font-style:normal;color:#c2bbaa;font-size:11px}
+.dots{font-size:15px;color:var(--accent);letter-spacing:3px;margin-top:2px}
+/* ---- 章节 ---- */
+h2.sec{font-size:20px;margin:34px 0 14px;display:flex;align-items:center;gap:10px;color:#26241f}
+h2.sec::before{content:"";width:5px;height:19px;border-radius:3px;background:var(--accent)}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.chip{background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:9px 12px;font-size:13px;color:#57534a}
+.chip b{color:var(--accent);display:block;font-size:11.5px;margin-bottom:1px;letter-spacing:1px}
+/* ---- 每日行程 ---- */
+.day{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:18px 22px;margin-bottom:16px;box-shadow:0 1px 2px rgba(60,50,30,.03)}
+.day h3{font-size:16.5px;margin-bottom:10px;color:#33302a}
+.day h3 .d{color:color-mix(in srgb,var(--accent) 85%,#000)}
+.slot{display:flex;gap:14px;padding:9px 0;border-top:1px dashed #efe8da}
+.day .slot:first-of-type{border-top:0}
+.slot .lab{flex:0 0 52px;height:26px;border-radius:8px;font-size:12.5px;display:flex;align-items:center;justify-content:center;margin-top:3px;font-weight:600}
+.lab.am{background:#fdf3e2;color:#a06a12}
+.lab.pm{background:#e8f3ec;color:#2f7d51}
+.lab.eve{background:#efecfa;color:#5d4fb3}
+.slot p{flex:1;font-size:14.3px;color:#4a463e}
+.eats{margin-top:8px;background:color-mix(in srgb,var(--accent) 7%,#fff);border:1px dashed color-mix(in srgb,var(--accent) 38%,#fff);border-radius:10px;padding:8px 14px;font-size:13.3px;color:#6b675e}
+.eats b{color:var(--accent);font-weight:600;margin-right:6px}
+/* ---- 必吃清单 ---- */
+.eatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.eat{background:#fff;border:1px solid #ece4d6;border-radius:10px;padding:8px 14px;font-size:13.8px;color:#4a463e}
+.eat::before{content:"✦ ";color:var(--accent)}
+/* ---- 实用信息 ---- */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.info .box{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:15px 18px}
+.box h4{font-size:14.5px;margin-bottom:7px;color:#33302a}
+.box ul{list-style:none}
+.box li{font-size:13.5px;color:#57534a;padding:3px 0 3px 16px;position:relative}
+.box li::before{content:"";position:absolute;left:2px;top:14px;width:5px;height:5px;border-radius:50%;background:color-mix(in srgb,var(--accent) 65%,#fff)}
+/* ---- 上下翻页 ---- */
+.pager{display:flex;gap:12px;margin:30px 0 10px}
+.pager a{flex:1;background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:11px 16px;font-size:13.5px;color:#57534a;transition:.15s}
+.pager a:hover{border-color:var(--accent);color:var(--accent)}
+.pager a small{display:block;color:#b7b0a2;font-size:11.5px;margin-bottom:1px}
+.pager a.next{text-align:right}
+.pager a.home{flex:0 0 140px;display:flex;align-items:center;justify-content:center}
+footer{padding:20px 0 36px;color:#b7b0a2;font-size:12.5px;text-align:center}
+/* ---- 总览页 ---- */
+.idx-hero{background:linear-gradient(160deg,#fdf3e7,#faf9f5);border-bottom:1px solid #ece4d6;padding:46px 0 32px;text-align:center}
+.idx-hero .kicker{font-size:13px;letter-spacing:5px;color:#a89f8d}
+.idx-hero h1{font-size:33px;margin:10px 0 8px;color:#26241f}
+.idx-hero p{color:#6b675e;font-size:14.5px}
+.pick{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:14px 20px;margin:18px 0;font-size:13.8px;color:#57534a;line-height:2}
+.pick b{color:#26241f}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid #ece4d6;border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:13.2px;min-width:1020px}
+th{background:#f4efe6;padding:10px 10px;font-size:12.2px;color:#8a8375;letter-spacing:1px;white-space:nowrap;text-align:left}
+td{padding:10px;border-top:1px solid #f0eade;vertical-align:middle}
+tbody tr:hover td{background:#fbf7ef}
+td a.city{font-weight:600}
+td a.city:hover{color:#c05a2e}
+.mini{letter-spacing:2px;color:#c05a2e;white-space:nowrap}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:14px}
+.card{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:19px;transition:.15s;display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(60,50,30,.09);border-color:#d8cdb8}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .top .emoji{font-size:29px}
+.card h3{font-size:17.5px;color:#26241f}
+.card .sub{font-size:13px;color:#8a8375;margin:8px 0 10px;min-height:42px}
+.card .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12.2px;color:#6b675e}
+.card .meta span{background:#f6f1e7;border-radius:8px;padding:2px 9px}
+.card .go{margin-top:11px;font-size:13px;color:#c05a2e;font-weight:600}
+@media (max-width:640px){
+  h1.title{font-size:24px}
+  .slot{flex-direction:column;gap:6px}
+  .slot .lab{margin-top:0}
+  .idx-hero h1{font-size:26px}
+}
+@media print{
+  .pager,.back,.card .go{display:none}
+  .day{break-inside:avoid}
+  body{background:#fff;zoom:1}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<a class="back" href="index.html">← 返回总览（21 城方案）</a>
+<div class="emoji">🌃</div>
+<h1 class="title">重庆五日 · 8D魔幻山城</h1>
+<p class="subtitle">楼顶是马路，负一楼还是马路；火锅配江景，辣得过瘾，夜景出片。</p>
+<div class="tags"><span class="tag">山城夜景</span><span class="tag">老火锅</span><span class="tag">拍大片</span><span class="tag">魔幻地形</span></div>
+</div></header>
+<main class="wrap">
+<div class="facts">
+<div class="fact"><b>🌤️ 十月天气</b>10月 18–25°C，秋高气爽，起雾的早晨最出片</div>
+<div class="fact"><b>👥 适合谁</b>爱吃辣、爱拍照、体力还行的城市玩家</div>
+<div class="fact"><b>💰 预算参考</b>约 3000–4300 元/人（不含往返大交通）</div>
+<div class="fact"><b>🏠 住哪一带</b>解放碑/洪崖洞步行可达一带（夜景核心区，出门就是江湖）；想安静看对岸夜景选南滨路</div>
+</div>
+<div class="scores">
+<div class="score"><div class="lab"><span>轻松</span><em>越多越省力</em></div><div class="dots">●●●●○</div></div>
+<div class="score"><div class="lab"><span>美食</span><em>越多越好吃</em></div><div class="dots">●●●●●</div></div>
+<div class="score"><div class="lab"><span>美景</span><em>越多越好看</em></div><div class="dots">●●●●○</div></div>
+<div class="score"><div class="lab"><span>十一人流</span><em>越多越拥挤</em></div><div class="dots">●●●●●</div></div>
+</div>
+<h2 class="sec">行程一览</h2><div class="strip">
+<div class="chip"><b>D1 · 抵达日</b>洪崖洞夜景开场</div>
+<div class="chip"><b>D2 · 山城日</b>爬坡上坎看老重庆</div>
+<div class="chip"><b>D3 · 魔幻日</b>轻轨穿楼与文创园</div>
+<div class="chip"><b>D4 · 文艺日</b>老茶馆与老街</div>
+<div class="chip"><b>D5 · 收尾日</b>慢慢醒来再走</div>
+</div>
+<h2 class="sec">每日安排</h2>
+<section class="day"><h3><span class="d">D1 · 抵达日</span> ｜ 洪崖洞夜景开场</h3>
+<div class="slot"><span class="lab am">上午</span><p>抵达重庆，入住解放碑一带，放好行李先歇口气。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>十八梯传统风貌区散步热身，石阶老巷感受山城落差。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>千厮门大桥上拍洪崖洞全景（亮灯约19:00–22:00，桥上视角最出片）；夜宵一碗小面垫底。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>重庆小面 · 山城汤圆 · 烤苕皮</div>
+</section>
+<section class="day"><h3><span class="d">D2 · 山城日</span> ｜ 爬坡上坎看老重庆</h3>
+<div class="slot"><span class="lab am">上午</span><p>山城第三步道：石板路+悬空栈道，脚下是长江，抬头是老居民楼晾的衣裳。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>中午花市豌杂面；白象居拍“筒子楼天井”，转场湖广会馆看移民文化。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>老火锅开席（珮姐、楠火锅、大虎都行，怕辣点鸳鸯锅）；饭后长江索道夜班过江，看两岸灯火。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>豌杂面 · 老火锅 · 酸辣粉</div>
+</section>
+<section class="day"><h3><span class="d">D3 · 魔幻日</span> ｜ 轻轨穿楼与文创园</h3>
+<div class="slot"><span class="lab am">上午</span><p>李子坝轻轨穿楼观景平台打卡，沿江步道走到鹅岭二厂文创园（《从你的全世界路过》取景地）。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>磁器口古镇：陈麻花配盖碗茶听曲艺，主街挤就从支巷绕。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>南山一棵树观景台看渝中半岛全景——本次旅行的封面照就在这里拍。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>陈麻花 · 毛血旺 · 江湖菜</div>
+</section>
+<section class="day"><h3><span class="d">D4 · 文艺日</span> ｜ 老茶馆与老街</h3>
+<div class="slot"><span class="lab am">上午</span><p>黄桷坪涂鸦一条街+交通茶馆：10元盖碗茶，坐进老重庆的烟火气里。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>弹子石老街或龙门浩老街，江边咖啡馆歇脚，看东水门大桥车流。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>两江夜游或南滨路散步收尾；晚餐杨记隆府江湖菜。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>豆花饭 · 辣子鸡 · 万州烤鱼</div>
+</section>
+<section class="day"><h3><span class="d">D5 · 收尾日</span> ｜ 慢慢醒来再走</h3>
+<div class="slot"><span class="lab am">上午</span><p>睡到自然醒，解放碑八一好吃街补漏：酸辣粉、山城汤圆、烤脑花。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>买伴手礼（火锅底料、陈麻花），从容返程。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>酸辣粉 · 山城汤圆 · 火锅底料（伴手）</div>
+</section>
+<h2 class="sec">必吃清单</h2><div class="eatgrid">
+<div class="eat">九宫格老火锅</div>
+<div class="eat">重庆小面</div>
+<div class="eat">豌杂面</div>
+<div class="eat">酸辣粉</div>
+<div class="eat">山城汤圆</div>
+<div class="eat">磁器口陈麻花</div>
+<div class="eat">毛血旺</div>
+<div class="eat">歌乐山辣子鸡</div>
+<div class="eat">豆花饭</div>
+<div class="eat">万州烤鱼</div>
+<div class="eat">烤脑花</div>
+</div>
+<h2 class="sec">实用信息</h2><div class="info">
+<div class="box"><h4>🚄 交通指南</h4><ul><li>江北机场轨道10号线直达；市内轨道交通+步行为主（导航在重庆经常“失灵”，跟着楼栋走）；过江体验长江索道</li></ul></div>
+<div class="box"><h4>🎫 提前预约/购票</h4><ul>
+<li>长江索道：旺季小程序购票可少排队</li>
+<li>两江夜游船票：提前一天订</li>
+<li>洪崖洞无需门票，人流管制时听现场指挥</li>
+</ul></div>
+<div class="box"><h4>💡 避坑与小贴士</h4><ul>
+<li>重庆是“步行地狱”也是“步行天堂”，穿双好走的鞋</li>
+<li>导航常显示“直线100米实际要下20层楼”，跟着楼栋和大路走</li>
+<li>火锅怕辣点鸳鸯锅不丢人，油碟护胃</li>
+<li>十一夜景机位人多，千厮门大桥往江北城一侧人少些</li>
+</ul></div>
+</div>
+<nav class="pager">
+<a href="plan-01-chengdu.html"><small>上一份 · 成都</small>成都五日 · 烟火慢煮</a>
+<a class="home" href="index.html">返回总览</a>
+<a class="next" href="plan-03-changsha.html"><small>下一份 · 长沙</small>长沙五日 · 快乐碳水之都</a>
+</nav>
+<footer>十一五日游方案集 · 方案 02 / 21 · 生成于 2026-09-23 · 价格与开放信息请以出行时为准</footer>
+</main>
+</body>
+</html>

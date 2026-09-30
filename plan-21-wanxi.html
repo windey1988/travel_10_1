@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>皖南五日 · 秋色徽州慢线 · 十一五日游方案集</title>
+<style>:root{--accent:#46596B}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",system-ui,sans-serif;color:#2c2a26;background:#faf9f5;line-height:1.8;-webkit-font-smoothing:antialiased;zoom:1.12}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+/* ---- 详情页头部 ---- */
+.hero{background:linear-gradient(165deg,color-mix(in srgb,var(--accent) 14%,#fff),#faf9f5 72%);border-bottom:1px solid #ece4d6;padding:34px 0 28px}
+.back{display:inline-block;font-size:13px;color:#8a8375;margin-bottom:14px}
+.back:hover{color:var(--accent)}
+.emoji{font-size:42px;line-height:1}
+h1.title{font-size:29px;margin:10px 0 8px;letter-spacing:.5px;color:#26241f}
+.subtitle{color:#6b675e;font-size:15.5px;max-width:680px}
+.tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12.5px;padding:3px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,#fff);color:color-mix(in srgb,var(--accent) 82%,#000);border:1px solid color-mix(in srgb,var(--accent) 28%,#fff)}
+/* ---- 速览 ---- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0 8px}
+.fact{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:13px 16px;font-size:13.8px;color:#4a463e}
+.fact b{display:block;font-size:12px;color:#9a9384;font-weight:600;margin-bottom:3px;letter-spacing:1.5px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0 6px}
+.score{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:11px 16px}
+.score .lab{font-size:12.5px;color:#9a9384;display:flex;justify-content:space-between;align-items:baseline}
+.score .lab em{font-style:normal;color:#c2bbaa;font-size:11px}
+.dots{font-size:15px;color:var(--accent);letter-spacing:3px;margin-top:2px}
+/* ---- 章节 ---- */
+h2.sec{font-size:20px;margin:34px 0 14px;display:flex;align-items:center;gap:10px;color:#26241f}
+h2.sec::before{content:"";width:5px;height:19px;border-radius:3px;background:var(--accent)}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.chip{background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:9px 12px;font-size:13px;color:#57534a}
+.chip b{color:var(--accent);display:block;font-size:11.5px;margin-bottom:1px;letter-spacing:1px}
+/* ---- 每日行程 ---- */
+.day{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:18px 22px;margin-bottom:16px;box-shadow:0 1px 2px rgba(60,50,30,.03)}
+.day h3{font-size:16.5px;margin-bottom:10px;color:#33302a}
+.day h3 .d{color:color-mix(in srgb,var(--accent) 85%,#000)}
+.slot{display:flex;gap:14px;padding:9px 0;border-top:1px dashed #efe8da}
+.day .slot:first-of-type{border-top:0}
+.slot .lab{flex:0 0 52px;height:26px;border-radius:8px;font-size:12.5px;display:flex;align-items:center;justify-content:center;margin-top:3px;font-weight:600}
+.lab.am{background:#fdf3e2;color:#a06a12}
+.lab.pm{background:#e8f3ec;color:#2f7d51}
+.lab.eve{background:#efecfa;color:#5d4fb3}
+.slot p{flex:1;font-size:14.3px;color:#4a463e}
+.eats{margin-top:8px;background:color-mix(in srgb,var(--accent) 7%,#fff);border:1px dashed color-mix(in srgb,var(--accent) 38%,#fff);border-radius:10px;padding:8px 14px;font-size:13.3px;color:#6b675e}
+.eats b{color:var(--accent);font-weight:600;margin-right:6px}
+/* ---- 必吃清单 ---- */
+.eatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.eat{background:#fff;border:1px solid #ece4d6;border-radius:10px;padding:8px 14px;font-size:13.8px;color:#4a463e}
+.eat::before{content:"✦ ";color:var(--accent)}
+/* ---- 实用信息 ---- */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.info .box{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:15px 18px}
+.box h4{font-size:14.5px;margin-bottom:7px;color:#33302a}
+.box ul{list-style:none}
+.box li{font-size:13.5px;color:#57534a;padding:3px 0 3px 16px;position:relative}
+.box li::before{content:"";position:absolute;left:2px;top:14px;width:5px;height:5px;border-radius:50%;background:color-mix(in srgb,var(--accent) 65%,#fff)}
+/* ---- 上下翻页 ---- */
+.pager{display:flex;gap:12px;margin:30px 0 10px}
+.pager a{flex:1;background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:11px 16px;font-size:13.5px;color:#57534a;transition:.15s}
+.pager a:hover{border-color:var(--accent);color:var(--accent)}
+.pager a small{display:block;color:#b7b0a2;font-size:11.5px;margin-bottom:1px}
+.pager a.next{text-align:right}
+.pager a.home{flex:0 0 140px;display:flex;align-items:center;justify-content:center}
+footer{padding:20px 0 36px;color:#b7b0a2;font-size:12.5px;text-align:center}
+/* ---- 总览页 ---- */
+.idx-hero{background:linear-gradient(160deg,#fdf3e7,#faf9f5);border-bottom:1px solid #ece4d6;padding:46px 0 32px;text-align:center}
+.idx-hero .kicker{font-size:13px;letter-spacing:5px;color:#a89f8d}
+.idx-hero h1{font-size:33px;margin:10px 0 8px;color:#26241f}
+.idx-hero p{color:#6b675e;font-size:14.5px}
+.pick{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:14px 20px;margin:18px 0;font-size:13.8px;color:#57534a;line-height:2}
+.pick b{color:#26241f}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid #ece4d6;border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:13.2px;min-width:1020px}
+th{background:#f4efe6;padding:10px 10px;font-size:12.2px;color:#8a8375;letter-spacing:1px;white-space:nowrap;text-align:left}
+td{padding:10px;border-top:1px solid #f0eade;vertical-align:middle}
+tbody tr:hover td{background:#fbf7ef}
+td a.city{font-weight:600}
+td a.city:hover{color:#c05a2e}
+.mini{letter-spacing:2px;color:#c05a2e;white-space:nowrap}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:14px}
+.card{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:19px;transition:.15s;display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(60,50,30,.09);border-color:#d8cdb8}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .top .emoji{font-size:29px}
+.card h3{font-size:17.5px;color:#26241f}
+.card .sub{font-size:13px;color:#8a8375;margin:8px 0 10px;min-height:42px}
+.card .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12.2px;color:#6b675e}
+.card .meta span{background:#f6f1e7;border-radius:8px;padding:2px 9px}
+.card .go{margin-top:11px;font-size:13px;color:#c05a2e;font-weight:600}
+@media (max-width:640px){
+  h1.title{font-size:24px}
+  .slot{flex-direction:column;gap:6px}
+  .slot .lab{margin-top:0}
+  .idx-hero h1{font-size:26px}
+}
+@media print{
+  .pager,.back,.card .go{display:none}
+  .day{break-inside:avoid}
+  body{background:#fff;zoom:1}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<a class="back" href="index.html">← 返回总览（21 城方案）</a>
+<div class="emoji">🍂</div>
+<h1 class="title">皖南五日 · 秋色徽州慢线</h1>
+<p class="subtitle">专为去过黄山宏村的人设计：绩溪的宗祠与古道、歙县的古城与土楼、呈坎的八卦村——徽州的样子，不止宏村。</p>
+<div class="tags"><span class="tag">绩溪龙川</span><span class="tag">皖浙天路</span><span class="tag">徽杭古道</span><span class="tag">徽州古城</span><span class="tag">徽菜之乡</span></div>
+</div></header>
+<main class="wrap">
+<div class="facts">
+<div class="fact"><b>🌤️ 十月天气</b>10月 12–23°C，秋高气爽，山里早晚凉带外套；十一秋色初显（塔川红叶要到11月中才盛，别为它赶）</div>
+<div class="fact"><b>👥 适合谁</b>去过黄山宏村想深游徽州的人、古建与宗祠爱好者、徽菜吃货</div>
+<div class="fact"><b>💰 预算参考</b>约 2400–3600 元/人（不含往返大交通）</div>
+<div class="fact"><b>🏠 住哪一带</b>前两晚住绩溪县城（老街一带，吃饭方便）；后两晚住歙县徽州古城内或旁（夜里府衙街安静有氛围）</div>
+</div>
+<div class="scores">
+<div class="score"><div class="lab"><span>轻松</span><em>越多越省力</em></div><div class="dots">●●●●○</div></div>
+<div class="score"><div class="lab"><span>美食</span><em>越多越好吃</em></div><div class="dots">●●●●○</div></div>
+<div class="score"><div class="lab"><span>美景</span><em>越多越好看</em></div><div class="dots">●●●●○</div></div>
+<div class="score"><div class="lab"><span>十一人流</span><em>越多越拥挤</em></div><div class="dots">●●●○○</div></div>
+</div>
+<h2 class="sec">行程一览</h2><div class="strip">
+<div class="chip"><b>D1 · 绩溪</b>徽菜之乡开席</div>
+<div class="chip"><b>D2 · 绩溪</b>龙川与皖浙天路村落群</div>
+<div class="chip"><b>D3 · 绩溪</b>徽杭古道与岱下村</div>
+<div class="chip"><b>D4 · 歙县</b>古城与土楼</div>
+<div class="chip"><b>D5 · 呈坎</b>八卦村告别</div>
+</div>
+<h2 class="sec">每日安排</h2>
+<section class="day"><h3><span class="d">D1 · 绩溪</span> ｜ 徽菜之乡开席</h3>
+<div class="slot"><span class="lab am">上午</span><p>高铁抵绩溪北站，进城入住（约20分钟车程），先适应小县城的慢节奏。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>绩溪博物馆看徽商、徽厨与徽墨的故事（建筑本身就很徽州），顺路老街巷散步。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>晚餐徽菜正席：胡适一品锅垫底，臭鳜鱼、刀板香跟上——绩溪是徽厨之乡，这顿是基准线。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>胡适一品锅 · 臭鳜鱼 · 刀板香</div>
+</section>
+<section class="day"><h3><span class="d">D2 · 绩溪</span> ｜ 龙川与皖浙天路村落群</h3>
+<div class="slot"><span class="lab am">上午</span><p>龙川景区：胡氏宗祠的木雕是徽州天花板，奕世尚书坊+水街慢慢走，讲解值得请。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>皖浙天路串村落：磡头古村水街→梅干岭观景台（梯田大场面，免费开放）→尚村（秋季晒秋，色彩最浓的一站），随停随拍。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>回县城，炉子上烤个挞粿当宵夜，早点休息。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>绩溪挞粿 · 笋干烧肉 · 徽州圆子</div>
+</section>
+<section class="day"><h3><span class="d">D3 · 绩溪</span> ｜ 徽杭古道与岱下村</h3>
+<div class="slot"><span class="lab am">上午</span><p>徽杭古道轻徒：江南第一关→施茶亭往返约3小时，石阶古道+峡谷溪涧，当年徽商就是这条路走出大山。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>古道口就在伏岭镇江南村——顺路岱下村：梯田环抱、古树村口，几乎没有游客的原味皖南村庄，发呆半小时值得；再往清潭古桥一停，傍晚移师歙县。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>宿徽州古城旁，夜里上古城墙走一圈，灯下的马头墙最好看。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>石头粿 · 山核桃 · 土鸡汤</div>
+</section>
+<section class="day"><h3><span class="d">D4 · 歙县</span> ｜ 古城与土楼</h3>
+<div class="slot"><span class="lab am">上午</span><p>徽州古城：许国石坊（八脚牌楼全国孤例）、斗山街、徽州府衙，一路走到渔梁坝看千年滚水坝。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>二选一：阳产土楼（山腰夯土楼群，换乘接驳车上山，下午光线最出片）或新安江山水画廊游船。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>歙县晚餐：问政山笋配深渡包袱饺，胃和相机都满载。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>问政山笋 · 深渡包袱饺 · 毛豆腐</div>
+</section>
+<section class="day"><h3><span class="d">D5 · 呈坎</span> ｜ 八卦村告别</h3>
+<div class="slot"><span class="lab am">上午</span><p>呈坎——“游呈坎，一生无坎”：八卦布局的千年古村，永兴湖晨雾里的白墙黛瓦，是比宏村清净太多的平替。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>黄山北站（车程约40分钟）返程；伴手礼带徽墨酥、黄山毛峰、山核桃。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>徽墨酥 · 毛豆腐 · 茶叶（伴手）</div>
+</section>
+<h2 class="sec">必吃清单</h2><div class="eatgrid">
+<div class="eat">臭鳜鱼</div>
+<div class="eat">胡适一品锅</div>
+<div class="eat">毛豆腐</div>
+<div class="eat">刀板香</div>
+<div class="eat">绩溪挞粿</div>
+<div class="eat">石头粿</div>
+<div class="eat">问政山笋</div>
+<div class="eat">徽州圆子</div>
+<div class="eat">深渡包袱饺</div>
+<div class="eat">葛粉圆子</div>
+<div class="eat">徽墨酥</div>
+<div class="eat">山核桃</div>
+</div>
+<h2 class="sec">实用信息</h2><div class="info">
+<div class="box"><h4>🚄 交通指南</h4><ul><li>高铁绩溪北站进出（车次少于黄山北站，返程票早买）；强烈建议自驾或包车串联——自驾在租车App订绩溪县城或黄山北站网点（绩溪北站本身网点少，异地还车有费用），皖浙天路山路弯多缓开；不自驾则包车（参考400–600元/天），让师傅按磡头—梅干岭—尚村—岱下村顺序走</li></ul></div>
+<div class="box"><h4>🎫 提前预约/购票</h4><ul>
+<li>徽杭古道门票：提前一天线上购</li>
+<li>龙川、呈坎门票：线上购</li>
+<li>徽州古城：街区免费，府衙等景点联票更划算</li>
+<li>阳产土楼接驳车：现场换乘</li>
+</ul></div>
+<div class="box"><h4>💡 避坑与小贴士</h4><ul>
+<li>这条线专门避开黄山和宏村，人少一半，正好补上徽州的另一半</li>
+<li>皖浙天路自驾最顺（31公里山水画廊），包车也让师傅按磡头—梅干岭—尚村顺序走</li>
+<li>岱下村就在徽杭古道口附近，徒步完顺路逛，不用额外绕路</li>
+<li>乡村风光加购清单：木梨硔（悬崖云海村，宿一晚，徒步40分钟上山）、石潭（晨雾云海机位，要清晨上山）、齐云山（索道轻松，丹霞+田园）——可替换D4下午或加住一晚</li>
+<li>十一塔川红叶未到盛期（11月中最佳），别为红叶专程赶</li>
+<li>徽杭古道穿运动鞋，轻徒版往返3小时强度适中，老少皆宜</li>
+<li>绩溪北站车次少，返程高铁票提前买；也可从黄山北站出（车次多）</li>
+</ul></div>
+</div>
+<nav class="pager">
+<a href="plan-20-rongcheng.html"><small>上一份 · 威海·荣成</small>威海·荣成五日 · 海草房与天尽头</a>
+<a class="home" href="index.html">返回总览</a>
+</nav>
+<footer>十一五日游方案集 · 方案 21 / 21 · 生成于 2026-09-23 · 价格与开放信息请以出行时为准</footer>
+</main>
+</body>
+</html>

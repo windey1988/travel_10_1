@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>西安五日 · 一城文物，满口烟火 · 十一五日游方案集</title>
+<style>:root{--accent:#92400E}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC","Source Han Sans SC",system-ui,sans-serif;color:#2c2a26;background:#faf9f5;line-height:1.8;-webkit-font-smoothing:antialiased;zoom:1.12}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1000px;margin:0 auto;padding:0 22px}
+/* ---- 详情页头部 ---- */
+.hero{background:linear-gradient(165deg,color-mix(in srgb,var(--accent) 14%,#fff),#faf9f5 72%);border-bottom:1px solid #ece4d6;padding:34px 0 28px}
+.back{display:inline-block;font-size:13px;color:#8a8375;margin-bottom:14px}
+.back:hover{color:var(--accent)}
+.emoji{font-size:42px;line-height:1}
+h1.title{font-size:29px;margin:10px 0 8px;letter-spacing:.5px;color:#26241f}
+.subtitle{color:#6b675e;font-size:15.5px;max-width:680px}
+.tags{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px}
+.tag{font-size:12.5px;padding:3px 12px;border-radius:999px;background:color-mix(in srgb,var(--accent) 10%,#fff);color:color-mix(in srgb,var(--accent) 82%,#000);border:1px solid color-mix(in srgb,var(--accent) 28%,#fff)}
+/* ---- 速览 ---- */
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:26px 0 8px}
+.fact{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:13px 16px;font-size:13.8px;color:#4a463e}
+.fact b{display:block;font-size:12px;color:#9a9384;font-weight:600;margin-bottom:3px;letter-spacing:1.5px}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px;margin:14px 0 6px}
+.score{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:11px 16px}
+.score .lab{font-size:12.5px;color:#9a9384;display:flex;justify-content:space-between;align-items:baseline}
+.score .lab em{font-style:normal;color:#c2bbaa;font-size:11px}
+.dots{font-size:15px;color:var(--accent);letter-spacing:3px;margin-top:2px}
+/* ---- 章节 ---- */
+h2.sec{font-size:20px;margin:34px 0 14px;display:flex;align-items:center;gap:10px;color:#26241f}
+h2.sec::before{content:"";width:5px;height:19px;border-radius:3px;background:var(--accent)}
+.strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px}
+.chip{background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:9px 12px;font-size:13px;color:#57534a}
+.chip b{color:var(--accent);display:block;font-size:11.5px;margin-bottom:1px;letter-spacing:1px}
+/* ---- 每日行程 ---- */
+.day{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:18px 22px;margin-bottom:16px;box-shadow:0 1px 2px rgba(60,50,30,.03)}
+.day h3{font-size:16.5px;margin-bottom:10px;color:#33302a}
+.day h3 .d{color:color-mix(in srgb,var(--accent) 85%,#000)}
+.slot{display:flex;gap:14px;padding:9px 0;border-top:1px dashed #efe8da}
+.day .slot:first-of-type{border-top:0}
+.slot .lab{flex:0 0 52px;height:26px;border-radius:8px;font-size:12.5px;display:flex;align-items:center;justify-content:center;margin-top:3px;font-weight:600}
+.lab.am{background:#fdf3e2;color:#a06a12}
+.lab.pm{background:#e8f3ec;color:#2f7d51}
+.lab.eve{background:#efecfa;color:#5d4fb3}
+.slot p{flex:1;font-size:14.3px;color:#4a463e}
+.eats{margin-top:8px;background:color-mix(in srgb,var(--accent) 7%,#fff);border:1px dashed color-mix(in srgb,var(--accent) 38%,#fff);border-radius:10px;padding:8px 14px;font-size:13.3px;color:#6b675e}
+.eats b{color:var(--accent);font-weight:600;margin-right:6px}
+/* ---- 必吃清单 ---- */
+.eatgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:10px}
+.eat{background:#fff;border:1px solid #ece4d6;border-radius:10px;padding:8px 14px;font-size:13.8px;color:#4a463e}
+.eat::before{content:"✦ ";color:var(--accent)}
+/* ---- 实用信息 ---- */
+.info{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
+.info .box{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:15px 18px}
+.box h4{font-size:14.5px;margin-bottom:7px;color:#33302a}
+.box ul{list-style:none}
+.box li{font-size:13.5px;color:#57534a;padding:3px 0 3px 16px;position:relative}
+.box li::before{content:"";position:absolute;left:2px;top:14px;width:5px;height:5px;border-radius:50%;background:color-mix(in srgb,var(--accent) 65%,#fff)}
+/* ---- 上下翻页 ---- */
+.pager{display:flex;gap:12px;margin:30px 0 10px}
+.pager a{flex:1;background:#fff;border:1px solid #ece4d6;border-radius:12px;padding:11px 16px;font-size:13.5px;color:#57534a;transition:.15s}
+.pager a:hover{border-color:var(--accent);color:var(--accent)}
+.pager a small{display:block;color:#b7b0a2;font-size:11.5px;margin-bottom:1px}
+.pager a.next{text-align:right}
+.pager a.home{flex:0 0 140px;display:flex;align-items:center;justify-content:center}
+footer{padding:20px 0 36px;color:#b7b0a2;font-size:12.5px;text-align:center}
+/* ---- 总览页 ---- */
+.idx-hero{background:linear-gradient(160deg,#fdf3e7,#faf9f5);border-bottom:1px solid #ece4d6;padding:46px 0 32px;text-align:center}
+.idx-hero .kicker{font-size:13px;letter-spacing:5px;color:#a89f8d}
+.idx-hero h1{font-size:33px;margin:10px 0 8px;color:#26241f}
+.idx-hero p{color:#6b675e;font-size:14.5px}
+.pick{background:#fff;border:1px solid #ece4d6;border-radius:14px;padding:14px 20px;margin:18px 0;font-size:13.8px;color:#57534a;line-height:2}
+.pick b{color:#26241f}
+.tablewrap{overflow-x:auto;background:#fff;border:1px solid #ece4d6;border-radius:14px}
+table{width:100%;border-collapse:collapse;font-size:13.2px;min-width:1020px}
+th{background:#f4efe6;padding:10px 10px;font-size:12.2px;color:#8a8375;letter-spacing:1px;white-space:nowrap;text-align:left}
+td{padding:10px;border-top:1px solid #f0eade;vertical-align:middle}
+tbody tr:hover td{background:#fbf7ef}
+td a.city{font-weight:600}
+td a.city:hover{color:#c05a2e}
+.mini{letter-spacing:2px;color:#c05a2e;white-space:nowrap}
+.cardgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;margin-top:14px}
+.card{background:#fff;border:1px solid #ece4d6;border-radius:16px;padding:19px;transition:.15s;display:block}
+.card:hover{transform:translateY(-3px);box-shadow:0 10px 24px rgba(60,50,30,.09);border-color:#d8cdb8}
+.card .top{display:flex;align-items:center;gap:10px}
+.card .top .emoji{font-size:29px}
+.card h3{font-size:17.5px;color:#26241f}
+.card .sub{font-size:13px;color:#8a8375;margin:8px 0 10px;min-height:42px}
+.card .meta{display:flex;gap:8px;flex-wrap:wrap;font-size:12.2px;color:#6b675e}
+.card .meta span{background:#f6f1e7;border-radius:8px;padding:2px 9px}
+.card .go{margin-top:11px;font-size:13px;color:#c05a2e;font-weight:600}
+@media (max-width:640px){
+  h1.title{font-size:24px}
+  .slot{flex-direction:column;gap:6px}
+  .slot .lab{margin-top:0}
+  .idx-hero h1{font-size:26px}
+}
+@media print{
+  .pager,.back,.card .go{display:none}
+  .day{break-inside:avoid}
+  body{background:#fff;zoom:1}
+}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+<a class="back" href="index.html">← 返回总览（21 城方案）</a>
+<div class="emoji">🏯</div>
+<h1 class="title">西安五日 · 一城文物，满口烟火</h1>
+<p class="subtitle">白天看三千年，晚上回大唐；馍与面条撑起的碳水盛世。</p>
+<div class="tags"><span class="tag">十三朝古都</span><span class="tag">碳水之都</span><span class="tag">盛唐夜景</span><span class="tag">博物馆</span></div>
+</div></header>
+<main class="wrap">
+<div class="facts">
+<div class="fact"><b>🌤️ 十月天气</b>10月 11–22°C，早晚凉中午暖，外套必备，气候干爽</div>
+<div class="fact"><b>👥 适合谁</b>历史迷、碳水爱好者、能接受人从众的战士</div>
+<div class="fact"><b>💰 预算参考</b>约 3000–4300 元/人（不含往返大交通）</div>
+<div class="fact"><b>🏠 住哪一带</b>钟楼/南门（永宁门）一带：交通核心，晚上城墙根酒吧街氛围好</div>
+</div>
+<div class="scores">
+<div class="score"><div class="lab"><span>轻松</span><em>越多越省力</em></div><div class="dots">●●●○○</div></div>
+<div class="score"><div class="lab"><span>美食</span><em>越多越好吃</em></div><div class="dots">●●●●●</div></div>
+<div class="score"><div class="lab"><span>美景</span><em>越多越好看</em></div><div class="dots">●●●●○</div></div>
+<div class="score"><div class="lab"><span>十一人流</span><em>越多越拥挤</em></div><div class="dots">●●●●●</div></div>
+</div>
+<h2 class="sec">行程一览</h2><div class="strip">
+<div class="chip"><b>D1 · 抵达日</b>钟楼与回坊</div>
+<div class="chip"><b>D2 · 盛唐日</b>博物馆到不夜城</div>
+<div class="chip"><b>D3 · 秦俑日</b>世界第八奇迹</div>
+<div class="chip"><b>D4 · 城墙日</b>骑行与碑林</div>
+<div class="chip"><b>D5 · 收尾日</b>晨钟里告别</div>
+</div>
+<h2 class="sec">每日安排</h2>
+<section class="day"><h3><span class="d">D1 · 抵达日</span> ｜ 钟楼与回坊</h3>
+<div class="slot"><span class="lab am">上午</span><p>抵达西安，入住钟楼或南门一带。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>钟鼓楼广场看地标，登鼓楼听一段晨钟暮鼓的讲解。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>回民街主街走马观花，真吃货拐进洒金桥：泡馍、烤肉、甑糕一路吃过去。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>羊肉泡馍 · 红柳烤肉 · 甑糕</div>
+</section>
+<section class="day"><h3><span class="d">D2 · 盛唐日</span> ｜ 博物馆到不夜城</h3>
+<div class="slot"><span class="lab am">上午</span><p>陕西历史博物馆（免费票提前蹲点抢，约不上改去秦汉馆或碑林，周一闭馆）。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>小寨午餐后转场大雁塔+大慈恩寺，登塔看曲江一片。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>大唐不夜城：穿汉服拍一组盛唐夜景，不倒翁小姐姐看运气。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>葫芦鸡 · 火晶柿子饼 · 镜糕</div>
+</section>
+<section class="day"><h3><span class="d">D3 · 秦俑日</span> ｜ 世界第八奇迹</h3>
+<div class="slot"><span class="lab am">上午</span><p>兵马俑（提前购票），一定请讲解或租导览器，有讲解和没讲解是天壤之别。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>顺路华清宫看贵妃汤池与西安事变旧址；傍晚返回市区。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>永宁门城墙下听酒吧街民谣，或登南门看夜色；永兴坊摔碗酒可选。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>biangbiang面 · 肉夹馍 · 凉皮</div>
+</section>
+<section class="day"><h3><span class="d">D4 · 城墙日</span> ｜ 骑行与碑林</h3>
+<div class="slot"><span class="lab am">上午</span><p>南门租自行车城墙骑行（全程13.7公里，骑一半折返也值）。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>书院门文房街闲逛，碑林博物馆看颜真卿真迹；湘子庙街咖啡小坐。</p></div>
+<div class="slot"><span class="lab eve">晚上</span><p>长安大牌档或醉长安：葫芦鸡+毛笔酥，仪式感收尾。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>水盆羊肉 · 胡辣汤 · 毛笔酥</div>
+</section>
+<section class="day"><h3><span class="d">D5 · 收尾日</span> ｜ 晨钟里告别</h3>
+<div class="slot"><span class="lab am">上午</span><p>一碗老白家或老孙家水盆羊肉配月牙饼；大兴善寺或广仁寺（陕西唯一藏传佛寺）静心。</p></div>
+<div class="slot"><span class="lab pm">下午</span><p>买伴手礼（德懋恭水晶饼、稠酒、腊牛肉），从容返程。</p></div>
+<div class="eats"><b>🍽 今日觅食</b>水盆羊肉 · 子午路张记肉夹馍 · 黄桂稠酒</div>
+</section>
+<h2 class="sec">必吃清单</h2><div class="eatgrid">
+<div class="eat">羊肉泡馍</div>
+<div class="eat">子午路张记肉夹馍</div>
+<div class="eat">biangbiang面</div>
+<div class="eat">凉皮</div>
+<div class="eat">水盆羊肉</div>
+<div class="eat">胡辣汤</div>
+<div class="eat">甑糕</div>
+<div class="eat">火晶柿子饼</div>
+<div class="eat">镜糕</div>
+<div class="eat">葫芦鸡</div>
+<div class="eat">黄桂稠酒</div>
+</div>
+<h2 class="sec">实用信息</h2><div class="info">
+<div class="box"><h4>🚄 交通指南</h4><ul><li>西安北站地铁2号线直达钟楼；市内地铁方便；去兵马俑地铁9号线+游5（306）路或拼车包车</li></ul></div>
+<div class="box"><h4>🎫 提前预约/购票</h4><ul>
+<li>陕西历史博物馆：免费票提前数天定点放票，十一秒光，务必蹲点</li>
+<li>兵马俑、华清宫、城墙、碑林：全部提前线上购票</li>
+<li>汉服租赁+跟拍：提前一天预约妆造</li>
+</ul></div>
+<div class="box"><h4>💡 避坑与小贴士</h4><ul>
+<li>十一西安人流量全国顶级，做好心理建设，景点一律赶早</li>
+<li>泡馍自己掰馍才正宗，掰得越碎越入味</li>
+<li>biangbiang面点一份分着吃，不然撑到走不动</li>
+<li>回民街主街看热闹，洒金桥吃门道</li>
+</ul></div>
+</div>
+<nav class="pager">
+<a href="plan-03-changsha.html"><small>上一份 · 长沙</small>长沙五日 · 快乐碳水之都</a>
+<a class="home" href="index.html">返回总览</a>
+<a class="next" href="plan-05-dali.html"><small>下一份 · 大理</small>大理五日 · 风花雪月慢环海</a>
+</nav>
+<footer>十一五日游方案集 · 方案 04 / 21 · 生成于 2026-09-23 · 价格与开放信息请以出行时为准</footer>
+</main>
+</body>
+</html>
