@@ -19,8 +19,9 @@ from plans_data_d import PLANS_D
 from plans_data_e import PLANS_E
 from plans_data_f import PLANS_F
 from plans_data_g import PLANS_G
+from plans_data_h import PLANS_H
 
-PLANS = PLANS_A + PLANS_B + PLANS_C + PLANS_D + PLANS_E + PLANS_F + PLANS_G
+PLANS = PLANS_A + PLANS_B + PLANS_C + PLANS_D + PLANS_E + PLANS_F + PLANS_G + PLANS_H
 HERE = os.path.dirname(os.path.abspath(__file__))
 
 TYPE_ORDER = ["吃货天堂", "山水画卷", "海滨度假", "人文古城", "都市漫步"]
