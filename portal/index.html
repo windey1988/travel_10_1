@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>站点导航 · 国庆假期愉快</title>
+<style>
+:root {
+  --bg1: #2b0808; --bg2: #120404;
+  --card: rgba(38, 16, 18, .82); --line: #5c2a2a; --line-hi: #8a4a2a;
+  --ink: #f7ead8; --sub: #c9a98f;
+  --gold: #f5c451; --gold-soft: #e0b13c; --red-soft: #ff9d8a;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { min-height: 100vh; }
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Noto Sans SC", system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1100px 700px at 78% -12%, rgba(140, 26, 26, .55), transparent 70%),
+    radial-gradient(900px 600px at -10% 110%, rgba(120, 30, 18, .4), transparent 70%),
+    linear-gradient(165deg, var(--bg1), var(--bg2));
+  display: flex; align-items: center; justify-content: center;
+  padding: 34px 18px; overflow-x: hidden;
+}
+/* ---- 背景祝福语水印 ---- */
+.mark {
+  position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+  pointer-events: none; user-select: none; z-index: 0;
+}
+.mark span {
+  font-weight: 900; white-space: nowrap; letter-spacing: .12em;
+  color: rgba(245, 196, 81, .055);
+  font-size: min(21vw, 190px);
+  transform: rotate(-7deg) translate(-4%, 6%);
+}
+.mark span.small {
+  font-size: min(9vw, 84px);
+  color: rgba(247, 234, 216, .04);
+  transform: rotate(-7deg) translate(38%, -52%);
+}
+/* ---- 装饰星星与灯笼 ---- */
+.deco { position: fixed; pointer-events: none; z-index: 0; user-select: none; }
+.star { color: rgba(245, 196, 81, .4); }
+.star.s1 { top: 9%; left: 12%; font-size: 18px; }
+.star.s2 { top: 22%; right: 14%; font-size: 13px; color: rgba(245,196,81,.28); }
+.star.s3 { bottom: 16%; left: 9%; font-size: 15px; color: rgba(245,196,81,.25); }
+.star.s4 { bottom: 9%; right: 11%; font-size: 20px; color: rgba(245,196,81,.33); }
+.lantern { font-size: 34px; filter: drop-shadow(0 4px 14px rgba(245, 120, 60, .35)); }
+.lantern.l1 { top: 4.5%; left: 5%; }
+.lantern.l2 { top: 7%; right: 6%; font-size: 26px; }
+/* ---- 内容 ---- */
+.wrap { width: 100%; max-width: 620px; position: relative; z-index: 1; }
+.kicker {
+  font-size: 13px; letter-spacing: 6px; color: var(--gold-soft);
+  display: flex; align-items: center; gap: 10px; margin-bottom: 14px;
+}
+.kicker::before, .kicker::after {
+  content: ""; height: 1px; width: 34px;
+  background: linear-gradient(90deg, transparent, rgba(245,196,81,.6));
+}
+.kicker::after { background: linear-gradient(90deg, rgba(245,196,81,.6), transparent); }
+h1.wish {
+  font-size: clamp(30px, 6.4vw, 44px); font-weight: 900; letter-spacing: .06em;
+  background: linear-gradient(180deg, #ffe9a8 15%, #f5c451 55%, #d99a2b 100%);
+  -webkit-background-clip: text; background-clip: text; color: transparent;
+  filter: drop-shadow(0 3px 16px rgba(245, 196, 81, .22));
+  margin-bottom: 10px;
+}
+.sub { color: var(--sub); font-size: 14px; margin-bottom: 30px; letter-spacing: .5px; }
+.divider { display: flex; align-items: center; gap: 12px; margin: 0 0 26px; color: rgba(245,196,81,.55); font-size: 12px; }
+.divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, transparent, rgba(140,60,42,.75), transparent); }
+/* ---- 卡片 ---- */
+.card {
+  display: block; background: var(--card); border: 1px solid var(--line);
+  border-radius: 16px; padding: 20px 22px; margin-bottom: 14px;
+  text-decoration: none; color: inherit;
+  box-shadow: 0 6px 22px rgba(0, 0, 0, .28);
+  transition: transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+  backdrop-filter: blur(3px);
+}
+.card:hover { transform: translateY(-3px); border-color: var(--gold); box-shadow: 0 12px 30px rgba(0,0,0,.38), 0 0 0 1px rgba(245,196,81,.15); }
+.card .row { display: flex; align-items: center; gap: 14px; }
+.emoji { font-size: 34px; flex-shrink: 0; }
+.name { font-size: 17px; font-weight: 700; letter-spacing: .5px; }
+.desc { color: var(--sub); font-size: 13px; margin-top: 3px; line-height: 1.65; }
+.arrow { margin-left: auto; color: var(--sub); font-size: 18px; flex-shrink: 0; transition: color .16s ease, transform .16s ease; }
+.card:hover .arrow { color: var(--gold); transform: translateX(3px); }
+.card.mind .name { color: var(--gold); }
+.card.travel .name { color: var(--red-soft); }
+.foot { margin-top: 24px; color: #9c7f6a; font-size: 12px; line-height: 1.9; text-align: center; }
+.foot code { background: rgba(38,16,18,.9); border: 1px solid var(--line); border-radius: 6px; padding: 1px 7px; font-size: 11.5px; }
+@media (max-width: 560px) {
+  .lantern.l1 { left: 3%; } .lantern.l2 { right: 3%; }
+  .star.s2, .star.s3 { display: none; }
+}
+</style>
+</head>
+<body>
+<div class="mark"><span>国庆假期愉快</span><span class="small">国庆假期愉快</span></div>
+<span class="deco star s1">✦</span><span class="deco star s2">✦</span>
+<span class="deco star s3">✦</span><span class="deco star s4">✦</span>
+<span class="deco lantern l1">🏮</span><span class="deco lantern l2">🏮</span>
+
+<div class="wrap">
+  <p class="kicker">2026 · 国庆</p>
+  <h1 class="wish">国庆假期愉快</h1>
+  <p class="sub">山河远阔，人间烟火——吃好、玩好、一路平安。</p>
+
+  <div class="divider">✦ 站点导航 ✦</div>
+
+  <a class="card mind" href="/mindcity/">
+    <div class="row">
+      <span class="emoji">🏙️</span>
+      <div>
+        <div class="name">心智之城</div>
+        <div class="desc">芒格 100 思维模型 · 105 关互动游戏。进城闯关，把每个模型玩成一手经验。</div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+  </a>
+
+  <a class="card travel" href="/travel/">
+    <div class="row">
+      <span class="emoji">🗺️</span>
+      <div>
+        <div class="name">十一五日游</div>
+        <div class="desc">24 城旅行方案集：行程、预算、避坑，一城一页。</div>
+      </div>
+      <span class="arrow">›</span>
+    </div>
+  </a>
+
+  <p class="foot">另有电视配置文件源 <code>/tvbox/</code>（无界面，供播放器直连）<br>🇨🇳 2026 国庆 · 山河无恙，烟火寻常</p>
+</div>
+</body>
+</html>
